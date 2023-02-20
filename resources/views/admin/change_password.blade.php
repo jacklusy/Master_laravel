@@ -12,7 +12,7 @@
                 <div class="col-xl-12 order-xl-1">
                     <div id="edit">
                         <div class="card-body">
-                            <form method="POST" action="{{route('update.password')}}">
+                            <form method="post" action="{{route('update.password')}}">
                                 @csrf
 
                                 @if (session('status'))
@@ -31,25 +31,25 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-address">Old Password</label>
-                                                <input id="current_password" name="old_password" placeholder="***********" class="form-control padding form-control-alternative @error('old_password') is-invalid @enderror "   type="password">
+                                                <label class="form-control-label">Old Password</label>
+                                                <input type="password" name="old_password" id="current_password"  placeholder="***********" class="form-control padding form-control-alternative @error('old_password') is-invalid @enderror ">
                                                 @error('old_password')
                                                    <span class="text-danger">{{ $message }}</span> 
                                                 @enderror
                                             </div>
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-address">New Password</label>
-                                                <input id="new_password" name="new_password" placeholder="***********" class="form-control padding form-control-alternative @error('new_password') is-invalid @enderror "   type="password">
+                                                <label class="form-control-label">New Password</label>
+                                                <input type="password" name="new_password" id="new_password"  placeholder="***********" class="form-control padding form-control-alternative @error('new_password') is-invalid @enderror ">
                                                 @error('new_password')
                                                    <span class="text-danger">{{ $message }}</span> 
                                                 @enderror
                                             </div>
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-address">Confirm New Password</label>
-                                                <input id="new_password_confirmtion" name="new_password_confirmtion" placeholder="***********" class="form-control padding form-control-alternative"   type="password">
+                                                <label class="form-control-label">Confirm New Password</label>
+                                                <input type="password" id="new_password_confirmation" name="new_password_confirmation" placeholder="***********" class="form-control padding form-control-alternative">
                                             </div> 
                                             <div class="form-group focused">
-                                                <button type="submit" class="btn btn-sm btn-primary">submit</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
                                             </div>
                                         </div>
                                     </div>

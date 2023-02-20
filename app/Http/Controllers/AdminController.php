@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -74,7 +75,7 @@ class AdminController extends Controller
        // validation
         $request->validate([
             'old_password' => 'required',
-            'new_password' => 'required|confirmed'
+            'new_password' => 'required|confirmed',
         ]); 
        // Match The Old Password
         if(!Hash::check($request->old_password, auth::user()->password)){
@@ -83,10 +84,14 @@ class AdminController extends Controller
 
         // update new password
 
-        User::WhereId(auth()->user()->id)->update([
+        User::Where('id',auth()->user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
 
         return back()->with("status","Password Changed Successfully");
-    }
+    } // End Method 
+
+
+   
+
 }
