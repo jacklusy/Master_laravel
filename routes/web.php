@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
@@ -45,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth','role:admin')->group(function(){
+Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::get('/admin/dashboard',[AdminController::class,'AdminDashboard'])->
     name('adminDash');
@@ -60,13 +61,14 @@ Route::middleware('auth','role:admin')->group(function(){
     Route::post('/admin/profile/store',[AdminController::class,'AdminProfileStore'])->
     name('admin.profile.store');
 
-    Route::get('/admin/Change/Password',[AdminController::class,'AdminChangePassword'])->
+    Route::get('/admin/change/password',[AdminController::class,'AdminChangePassword'])->
     name('admin.change.password');  
 
       
-    Route::post('/admin/Update/Password',[AdminController::class,'AdminUpdatePassword'])->
+    Route::post('/admin/update/password',[AdminController::class,'AdminUpdatePassword'])->
     name('update.password');
 
+   
 
 });
 
@@ -77,3 +79,20 @@ Route::middleware('auth','role:vendor')->group(function(){
 });
 
 Route::get('/admin/login',[AdminController::class,'AdminLogin']);
+
+
+
+
+
+Route::middleware(['auth','role:admin'])->group(function(){
+    
+    /////////// Brand ///////////
+
+    Route::controller(BrandController::class)->group(function(){
+    
+        Route::get('/all/brand','AllBrand')->name('all.brand');
+    
+    });
+
+}); // End Middleware
+
