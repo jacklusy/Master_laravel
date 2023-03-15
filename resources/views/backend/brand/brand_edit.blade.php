@@ -14,17 +14,20 @@
 
                     <div id="edit">
                         <div class="card-body">
-                            <form id="myForm" method="POST" action="{{route('store.brand')}}" enctype="multipart/form-data">
+                            <form id="myForm" method="POST" action="{{route('update.brand')}}" enctype="multipart/form-data">
                                 @csrf
+
+                                <input type="hidden" name="id" value="{{ $brand->id }}">
+                                <input type="hidden" name="old_image" value="{{ $brand->brand_image }}">
                                 
-                                <h4>Add Brand</h4>
+                                <h4>Edit Brand</h4>
                                 <hr class="my-4">
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-username">Brand Name</label>
-                                                <input type="text" id="input-username" name="brand_name" class="form-control padding form-control-alternative" placeholder="Username">
+                                                <input type="text" id="input-username" name="brand_name" class="form-control padding form-control-alternative" placeholder="Username" value="{{$brand->brand_name}}">
                                             </div>
                                         </div>
                                     </div>
@@ -38,7 +41,7 @@
                                                 <input type="file" id="image" name="brand_image"  class="form-control padding form-control-alternative">
                                             </div>
                                             <div class="form-group">
-                                                <img src="{{url('upload/default.jpg')}}"  alt="photo" class="showImage" id="showImage">
+                                                <img src="{{asset($brand->brand_image)}}" alt="photo" class="showImage" id="showImage">
                                             </div>
                                         </div>
                                         

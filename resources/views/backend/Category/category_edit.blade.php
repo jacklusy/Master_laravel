@@ -14,17 +14,20 @@
 
                     <div id="edit">
                         <div class="card-body">
-                            <form id="myForm" method="POST" action="{{route('store.brand')}}" enctype="multipart/form-data">
+                            <form id="myForm" method="POST" action="{{route('update.category')}}" enctype="multipart/form-data">
                                 @csrf
+
+                                <input type="hidden" name="id" value="{{ $category->id }}">
+                                <input type="hidden" name="old_image" value="{{ $category->category_image }}">
                                 
-                                <h4>Add Brand</h4>
+                                <h4>Edit Category</h4>
                                 <hr class="my-4">
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-username">Brand Name</label>
-                                                <input type="text" id="input-username" name="brand_name" class="form-control padding form-control-alternative" placeholder="Username">
+                                                <label class="form-control-label" for="input-username">Category Name</label>
+                                                <input type="text" id="input-username" name="category_name" class="form-control padding form-control-alternative" placeholder="Username" value="{{$category->category_name}}">
                                             </div>
                                         </div>
                                     </div>
@@ -34,11 +37,11 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Brand Image</label>
-                                                <input type="file" id="image" name="brand_image"  class="form-control padding form-control-alternative">
+                                                <label class="form-control-label" for="input-email">Category Image</label>
+                                                <input type="file" id="image" name="category_image"  class="form-control padding form-control-alternative">
                                             </div>
                                             <div class="form-group">
-                                                <img src="{{url('upload/default.jpg')}}"  alt="photo" class="showImage" id="showImage">
+                                                <img src="{{asset($category->category_image)}}" alt="photo" class="showImage" id="showImage">
                                             </div>
                                         </div>
                                         
@@ -63,13 +66,13 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                brand_name: {
+                category_name: {
                     required : true,
                 }, 
             },
             messages :{
-                brand_name: {
-                    required : 'Please Enter Brand Name',
+                category_name: {
+                    required : 'Please Enter category Name',
                 },
             },
             errorElement : 'span', 

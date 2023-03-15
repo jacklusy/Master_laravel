@@ -10,13 +10,13 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">All Brand</li>
+                    <li class="breadcrumb-item active" aria-current="page">All Product</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{route('add.brand')}}" class="btn btn-primary">Add Brand</a>
+                <a href="{{route('add.product')}}" class="btn btn-primary">Add Product</a>
             </div>
         </div>
     </div>
@@ -29,20 +29,31 @@
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Brand Name</th>
-                            <th>Brand Image</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>QTY</th>
+                            <th>Discount</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($brands as $key => $item)
+                        @foreach ($Products as $key => $item)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{$item->brand_name}}</td>
-                                <td> <img src="{{ asset($item->brand_image) }}" alt="photo" style="width:70px ; height:60px ;"></td>
+                                <td> <img src="{{ asset($item->product_thambnail) }}" alt="photo" style="width:70px ; height:60px ;"></td>
+                                <td>{{$item->product_name}}</td>
+                                <td>{{$item->selling_price}}</td>
+                                <td>{{$item->product_qty}}</td>
+                                <td>{{$item->discount_price	}}</td>
+                                <td>{{$item->status}}</td>
+
                                 <td>
-                                    <a href="{{route('edit.brand',$item->id)}}" class="btn btn-info">Edit</a>
-                                    <a href="{{route('delete.brand',$item->id)}}" id="delete" class="btn btn-danger">Delete</a>
+                                    {{-- {{route('edit.product',$item->id)}} --}}
+                                    <a href="#" class="btn btn-info">Edit</a>
+                                    <a href="#" id="delete" class="btn btn-danger">Delete</a>
+                                    {{-- {{route('delete.product',$item->id)}} --}}
                                 </td>
                             </tr>
                         @endforeach
@@ -50,8 +61,12 @@
                     <tfoot>
                         <tr>
                             <th>SL</th>
-                            <th>Brand Name</th>
-                            <th>Brand Image</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>QTY</th>
+                            <th>Discount</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
