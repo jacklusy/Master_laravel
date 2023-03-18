@@ -124,7 +124,8 @@
 	}
 	@endif 
 	</script>
-
+		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>

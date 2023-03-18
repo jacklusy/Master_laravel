@@ -10,7 +10,9 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">All Product</li>
+                    <li class="breadcrumb-item active" aria-current="page">All Product
+                        <span class="badge rounded-pill bg-danger"> {{count($Products)}} </span>
+                    </li>
                 </ol>
             </nav>
         </div>
@@ -46,13 +48,38 @@
                                 <td>{{$item->product_name}}</td>
                                 <td>{{$item->selling_price}}</td>
                                 <td>{{$item->product_qty}}</td>
-                                <td>{{$item->discount_price	}}</td>
-                                <td>{{$item->status}}</td>
+                                <td>
+                                    @if ($item->discount_price == Null)
+                                        <span class="badge rounded-pill bg-info">No Discount</span>
+                                    @else
+                                        @php
+                                            $amount = $item->selling_price - $item->discount_price;
+                                            $discount = ($amount/$item->selling_price)*100;
+                                        @endphp
+
+                                            <span class="badge rounded-pill bg-danger"> {{round($discount)}}% </span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if ($item->status == 1)
+                                        <span class="badge rounded-pill bg-success">Active</span>
+                                    @else
+                                        <span class="badge rounded-pill bg-danger">InActive</span>
+                                    @endif
+                                </td>
 
                                 <td>
                                     {{-- {{route('edit.product',$item->id)}} --}}
-                                    <a href="#" class="btn btn-info">Edit</a>
-                                    <a href="#" id="delete" class="btn btn-danger">Delete</a>
+                                    <a href="{{route('edit.product',$item->id)}}" class="btn btn-info" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="{{route('delete.product',$item->id)}}" id="delete" class="btn btn-danger" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="#" id="delete" class="btn btn-warning" title="Details Page"><i class="fa-solid fa-eye"></i></a>
+
+                                    @if ($item->status == 1)
+                                        <a href="{{route('product.inactive',$item->id)}}"  class="btn btn-primary" title="Inactive"><i class="fa-solid fa-thumbs-down"></i></a>
+                                    @else
+                                        <a href="{{route('product.active',$item->id)}}"  class="btn btn-primary" title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
+                                    @endif
                                     {{-- {{route('delete.product',$item->id)}} --}}
                                 </td>
                             </tr>
