@@ -195,3 +195,6 @@ Route::middleware(['auth','role:admin'])->group(function(){
 /// frontend product details
 
 Route::get('/product/details/{id}/{slug}',[IndexController::class,'ProductDetails']);
+
+/// frontend category 
+Route::get('/product/category/{id}/{slug}',[IndexController::class,'CatWiseProduct']);

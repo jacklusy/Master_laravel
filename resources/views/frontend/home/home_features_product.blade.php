@@ -24,12 +24,12 @@
                             <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
                             <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
 
-                                @foreach ($featured as $feature)
+                                @foreach ($featured as $product)
                                     <div class="product-cart-wrap">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="{{url('product/details/'.$feature->id.'/'.$feature->product_slug)}}">
-                                                    <img class="default-img" src="{{asset($feature->product_thambnail)}} " alt="" />
+                                                <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">
+                                                    <img class="default-img" src="{{asset($product->product_thambnail)}} " alt="" />
                                                 </a>
                                             </div>
                                             <div class="product-action-1">
@@ -39,11 +39,11 @@
                                             </div>
 
                                             @php
-                                                $amount = $feature->selling_price - $feature->discount_price;
-                                                $discount = ($amount/$feature->selling_price)*100;
+                                                $amount = $product->selling_price - $product->discount_price;
+                                                $discount = ($amount/$product->selling_price)*100;
                                             @endphp
                                             <div class="product-badges product-badges-position product-badges-mrg">
-                                                @if ($feature->discount_price == NULL)
+                                                @if ($product->discount_price == NULL)
                                                     <span class="new">New </span>
                                                 @else
                                                     <span class="hot">{{round($discount)}}% </span>
@@ -53,25 +53,25 @@
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop-grid-right.html">{{$feature['category']['category_name']}}</a>
+                                                <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a>
                                             </div>
                                             <h2>
-                                                <a href="{{url('product/details/'.$feature->id.'/'.$feature->product_slug)}}">
-                                                    {{ $feature->product_name }}
+                                                <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">
+                                                    {{ $product->product_name }}
                                                 </a>
                                             </h2>
                                             <div class="product-rate d-inline-block">
                                                 <div class="product-rating" style="width: 80%"></div>
                                             </div>
 
-                                            @if ($feature->discount_price == NULL)
+                                            @if ($product->discount_price == NULL)
                                                 <div class="product-price">
                                                     <span>${{$product->selling_price}}</span>
                                                 </div>
                                             @else
                                                 <div class="product-price">
-                                                    <span>${{$feature->discount_price}}</span>
-                                                    <span class="old-price">${{$feature->selling_price}}</span>
+                                                    <span>${{$product->discount_price}}</span>
+                                                    <span class="old-price">${{$product->selling_price}}</span>
                                                 </div>
                                             @endif
                                             
