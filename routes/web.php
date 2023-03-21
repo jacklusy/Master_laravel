@@ -198,3 +198,7 @@ Route::get('/product/details/{id}/{slug}',[IndexController::class,'ProductDetail
 
 /// frontend category 
 Route::get('/product/category/{id}/{slug}',[IndexController::class,'CatWiseProduct']);
+
+// Product View Model With Ajax
+Route::get('/product/view/model/{id}/',[IndexController::class,'ProductViewAjax']);
+
