@@ -12,41 +12,53 @@ class CartController extends Controller
 {
     public function AddToCart(Request $request, $id) {
 
-        $user = Auth()->user();
-        $product = Product::findOrFail($id);
-        $cart = new Cart;
-        if ($product->discount_price == NULL) {
-
-            $cart->name= $user->name;
-            $cart->phone= $user->phone;
-            $cart->address= $user->address;
-
-            $cart->product_name = $product->product_name;
-            $cart->selling_price = $product->selling_price;
-            $cart->product_qty = $product->product_qty;
-
-            $cart->save();
-            return redirect()->back();
-
-        }else {
-            $cart=([
-                'id' => $id,
-                'name' => $request->product_name,
-                'qty' => $request->quantity,
-                'price' => $product->discount_price,
-                'weight' =>1,
-                'options' => [
-                    'image' => $product->product_thambnail,
-                    'color' => $request->color,
-                    'size' => $request->size,
-                ]
-            ]);
-
-            return response()->json(['success' => 'Successfully Added on Your Cart' ]);
+        if (Auth::check()) {
+            $user = Auth::user();
         }
+
+        $product = Product::findOrFail($id);
+
+        Cart::insert([
+            'product_id' => $product->id,
+            'quantity' => $request->quantity,
+            'color' => $request->color,
+            'size' => $request->size,
+
+            'user_id' => $user->id,
+            'name' => $user->name,
+            'phone' => $user->phone,
+            'address' => $user->address,
+        ]);
+
+        $notification = array(
+            'message' => 'Add to Cart Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('home')->with($notification);
+
 
         
     }
 
+    
+    public function DeleteCart($id){
 
+        $Cart =  Cart::findOrFail($id);
+
+        $Cart->delete();
+
+        $notification = array(
+            'message' => 'Brand Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function MyCart() {
+        $user_id = Auth::user()->id;
+        $carts = Cart::where('user_id',$user_id)->get();
+        return view('frontend.mycart.view_mycart',compact('carts'));
+    }
 }

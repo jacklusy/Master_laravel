@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
 
+            $table->integer('product_id');
+            $table->string('quantity')->nullable();
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
+
+            $table->integer('user_id');
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
-            $table->text('product_name')->nullable();
-            $table->text('product_qty')->nullable();
-            $table->string('selling_price')->nullable();
-            $table->string('discount_price')->nullable();
 
             $table->timestamps();
         });

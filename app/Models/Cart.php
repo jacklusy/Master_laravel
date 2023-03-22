@@ -11,4 +11,19 @@ class Cart extends Model
 
     protected $guarded = [];
 
+    public function product() {
+        return $this->belongsTo(Product::class,'product_id','id');
+    }
+
+
+    
+    // $table->integer('product_id');
+    //         $table->string('quantity')->nullable();
+
+    //         $table->integer('user_id');
+    //         $table->string('name')->nullable();
+    //         $table->string('phone')->nullable();
+    //         $table->text('address')->nullable();
+
+
 }

@@ -109,48 +109,78 @@
                                 <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
+                                @php
+                                    if (Auth::check()) {
+                                        $user_id = Auth::user()->id;
+                                        $carts = App\Models\Cart::where('user_id',$user_id)->get();
+                                        $count = $carts->count();
+                                    }
+                                @endphp
+                                <a class="mini-cart-icon" href="{{route('mycart')}}">
                                     <img alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-cart.svg')}} " />
-                                    <span class="pro-count blue">2</span>
+
+                                    @if (Auth::check())
+                                        <span class="pro-count blue">{{$count}}</span>
+                                    @else
+                                        <span class="pro-count blue">0</span>
+                                    @endif
                                 </a>
-                                <a href="shop-cart.html"><span class="lable">Cart</span></a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Nest" src="{{asset('frontend/assets/imgs/shop/thumbnail-3.jpg')}} " /></a>
+                                <a href="{{route('mycart')}}"><span class="lable">Cart</span></a>
+
+                                @if (Auth::check())
+                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                        <ul>
+                                            @foreach ($carts as $cart)
+                                                <li>
+                                                    <div class="shopping-cart-img">
+                                                        <a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"><img alt="Nest" src="{{asset($cart['product']['product_thambnail'])}} " /></a>
+                                                    </div>
+                                                    <div class="shopping-cart-title">
+                                                        <h4><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h4>
+                                                        @if ($cart['product']['discount_price'] == NULL)
+                                                            <h4><span>{{$cart->quantity}} × </span>${{$cart['product']['selling_price']}}</h4>
+                                                            
+                                                        @else
+                                                            <h4><span>{{$cart->quantity}} × </span>${{$cart['product']['discount_price']}}</h4>
+                                                        @endif
+                                                    </div>
+                                                    <div class="shopping-cart-delete">
+                                                        <a type="submit" href="{{route('delete.cart',$cart->id)}}"><i class="fi-rs-cross-small"></i></a>
+                                                    </div>
+                                                </li>
+                                            
+                                            @endforeach
+                                        
+                                        </ul>
+                                        <div class="shopping-cart-footer">
+                                            @php
+                                                $AllTotal = 0;
+                                                foreach ($carts as $cart) {
+                                                    $qty = $cart->quantity;
+                                                    if ($cart['product']['discount_price'] == NULL) {
+
+                                                        $selling_price = $cart['product']['selling_price'];
+                                                        $total = $qty * $selling_price;
+                                                        $AllTotal +=$total;
+                                                    }else {
+                                                        $discount_price = $cart['product']['discount_price'];
+                                                        $total = $qty * $discount_price; 
+                                                        $AllTotal +=$total;
+
+                                                    }
+                                                }
+                                            @endphp
+                                            <div class="shopping-cart-total">
+                                                <h4>Total <span>${{$AllTotal}}</span></h4>
                                             </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
-                                                <h4><span>1 × </span>$800.00</h4>
+                                            <div class="shopping-cart-button">
+                                                <a href="{{route('mycart')}}" class="outline">View cart</a>
+                                                <a href="shop-checkout.html">Checkout</a>
                                             </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Nest" src="{{asset('frontend/assets/imgs/shop/thumbnail-2.jpg')}} " /></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
-                                                <h4><span>1 × </span>$3200.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>$4000.00</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="shop-cart.html" class="outline">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+
                             </div>
                             <div class="header-action-icon-2">
                                 <a href="page-account.html">

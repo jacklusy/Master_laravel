@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.index');
 // });
 
-Route::get('/',[IndexController::class,'Index']);
+Route::get('/',[IndexController::class,'Index'])->name('home');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -204,7 +204,19 @@ Route::get('/product/category/{id}/{slug}',[IndexController::class,'CatWiseProdu
 Route::get('/product/view/model/{id}/',[IndexController::class,'ProductViewAjax']);
 
 
-// add to cart store data 
-Route::post('/cart/data/store/{id}/',[CartController::class,'AddToCart']);
 
+Route::middleware(['auth','role:user'])->group(function(){
 
+    Route::controller(CartController::class)->group(function(){
+
+        // add to cart store data 
+        Route::post('/cart/data/store/{id}/','AddToCart');
+        
+        // view cart details
+        Route::get('/mycart','MyCart')->name('mycart');
+
+        Route::get('/delete/cart/{id}','DeleteCart')->name('delete.cart');
+
+    });
+
+}); // End Middleware
