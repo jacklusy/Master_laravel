@@ -1,7 +1,7 @@
 <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModel"></button>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
@@ -53,9 +53,21 @@
 
                                     <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
                                 </div>
+                                <input type="hidden" id="product_id">
+
+                                @php
+                                    $product_id = request()->input('product_id');
+                                    echo "The product ID is: " . $product_id;
+                                @endphp
+
+                               
                                 <div class="product-extra-link2">
-                                    <input type="hidden" id="product_id">
-                                    <button type="submit" class="button button-add-to-cart" onclick="addToCart()"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                    
+                                    <form action="{{url('/cart/data/store/'.$product_id)}}" method="POST">
+                                        @csrf
+
+                                        <button type="submit" class="button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                    </form>
                                 </div>
                             </div>
 

@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
 
-    <meta name="csrt-token" content="{{ csrf_token() }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
@@ -102,6 +102,13 @@
 
                     $('#pimage').attr('src','/'+ data.product.product_thambnail);
                     
+                    $('#product_id').val(id);
+                    $('#qty').val(1);
+
+
+
+
+
                     //product price
 
                     if(data.product.discount_price == null) {
@@ -157,7 +164,35 @@
             })
 
 
-        }
+        } // END product view with model
+        
+
+        // start add to cart product
+
+        // function addToCart(){
+        //     var product_name = $('#pname').text();
+        //     var id = $('#product_id').val();
+        //     var color = $('#color option:selected').text();
+        //     var size = $('#size option:selected').text();
+        //     var quantity = $('#qty').val();
+
+        //     $.ajax({
+        //         type : "POST",
+        //         dataType : "json" ,
+        //         data : {
+        //             color:color,
+        //             size:size,
+        //             quantity:quantity,
+        //             product_name:product_name,
+        //         },
+        //         url: "/cart/data/store/"+id,
+        //         success:function(data){
+        //             console.log(data);
+        //         }
+        //     })
+
+        // } // END add to cart product
+        
 
     </script>
 
