@@ -1,5 +1,4 @@
 @extends('frontend.master_dashboard')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @section('main')
     <div class="page-header breadcrumb-wrap">
         <div class="container">
@@ -118,24 +117,7 @@
                 <div class="row mt-50">
 
                     <div class="col-lg-5">
-                        @if (Session::has('coupon'))
-                            
-                        @else
-                            
-                            
-                                <div class="p-40" id="couponField">
-                                    <h4 class="mb-10">Apply Coupon</h4>
-                                    <p class="mb-30"><span class="font-lg text-muted">Using A Promo Code?</p>
-                                        
-                                    <form action="#" id="coupon-form">
-                                        <div class="d-flex justify-content-between">
-                                            <input class="font-medium mr-15 coupon" id="coupon_name" placeholder="Enter Your Coupon">
-                                            <a type="submit" onclick="applyCoupon()" class="btn btn-success"><i class="fi-rs-label mr-10"></i>Apply</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            
-                        @endif
+                      
                     </div>
 
 
@@ -145,40 +127,13 @@
                             <div class="table-responsive">
                                 <table class="table no-border">
                                     <tbody>
-                                        <tr>
-                                            <td class="cart_total_label">
-                                                <h6 class="text-muted">Subtotal</h6>
-                                            </td>
-                                            <td class="cart_total_amount">
-
-                                                <input type="hidden" id="cart-total" value="{{$AllTotal}}">
-                                                <h4 class="text-brand text-end">${{$AllTotal}}</h4>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cart_total_label">
-                                                <h6 class="text-muted">Coupon</h6>
-                                            </td>
-                                            
-                                            <td class="cart_total_amount">
-                                                <h6 class="text-brand text-end"></h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cart_total_label">
-                                                <h6 class="text-muted">Discount Amount</h6>
-                                            </td>
-                                            <td class="cart_total_amount">
-                                                <h4 class="text-brand text-end" id="coupon-discount"></h4>
-                                            </td>
-                                        </tr>
+                                       
                                         <tr>
                                             <td class="cart_total_label">
                                                 <h6 class="text-muted">Grand Total</h6>
                                             </td>
                                             <td class="cart_total_amount">
-                                                <h4 class="text-brand text-end" id="GrandTotal"></h4>
+                                                <h4 class="text-brand text-end" id="GrandTotal">${{$AllTotal}}</h4>
                                             </td>
                                         </tr>
                                         

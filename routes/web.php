@@ -295,8 +295,6 @@ Route::middleware(['auth','role:user'])->group(function(){
         // checkout page route
         Route::get('/checkout/{AllTotal}','CheckoutCreate')->name('checkout');
 
-        Route::post('/coupon-apply/{total}','CouponApply');
-        
     });
 
     Route::controller(CheckoutController::class)->group(function(){
