@@ -19,6 +19,11 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/plugins/animate.min.css')}} " />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css?v=5.3')}} " />
+
+    {{-- notifications --}}
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+
 </head>
 
 <body>
@@ -73,128 +78,170 @@
     <script src="{{asset('frontend/assets/js/main.js?v=5.3')}} "></script>
     <script src="{{asset('frontend/assets/js/shop.js?v=5.3')}} "></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script type="text/javascript">
-    
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-            }
-        })
+   
+    {{--  start notifications --}}
+      
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-        // start product view with model
+	<script>
+		@if(Session::has('message'))
+		var type = "{{ Session::get('alert-type','info') }}"
+		switch(type){
+			case 'info':
+			toastr.info(" {{ Session::get('message') }} ");
+			break;
 
-        function productView(id){
-            // alert(id)
+			case 'success':
+			toastr.success(" {{ Session::get('message') }} ");
+			break;
 
-            $.ajax({
-                type : 'GET',
-                url : '/product/view/model/'+id,
-                dataType : 'json',
-                success:function(data){
-                    // console.log(data);
-                    $('#pname').text(data.product.product_name);
-                    $('#pprice').text(data.product.selling_price);
-                    $('#pcode').text(data.product.product_code);
+			case 'warning':
+			toastr.warning(" {{ Session::get('message') }} ");
+			break;
 
-                    $('#pcategory').text(data.product.category.category_name);
-                    $('#pbrand').text(data.product.brand.brand_name);
+			case 'error':
+			toastr.error(" {{ Session::get('message') }} ");
+			break; 
+		}
+		@endif 
+	</script>
 
-                    $('#pimage').attr('src','/'+ data.product.product_thambnail);
-                    
-                    $('#product_id').val(id);
-                    $('#qty').val(1);
-
-
+    {{-- end notifications --}}
 
 
 
-                    //product price
+  <!--  ////////////// Start Apply Coupon ////////////// -->
+    <script>
+            
+        function applyCoupon(){
+            var total = $('#cart-total').val();
+            var coupon_name = $('#coupon_name').val();
+                    $.ajax({
+                        type: "POST",
+                        dataType: 'json',
+                        data: {coupon_name:coupon_name},
 
-                    if(data.product.discount_price == null) {
-                        $('#pprice').text('');
-                        $('#oldprice').text('');
+                        url: "/coupon-apply/"+total,
 
-                        $('#pprice').text(data.product.selling_price);
+                        success:function(data){
+                            couponCalculation();
 
-                    }else {
-
-                        $('#pprice').text(data.product.discount_price);
-                        $('#oldprice').text(data.product.selling_price);
+                            if (data.validity == true) {
+                                $('#couponField').hide();
+                            }
                         
-                    }
 
-                    if(data.product.product_qty > 0 ) {
-                        $('#aviable').text('');
-                        $('#stockout').text('');
+                            // Start Message 
 
-                        $('#aviable').text('aviable');
-                    } else {
-                        $('#aviable').text('');
-                        $('#stockout').text('');
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        
+                        showConfirmButton: false,
+                        timer: 3000 
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                            
+                            Toast.fire({
+                            type: 'success',
+                            icon: 'success', 
+                            title: data.success, 
+                            })
 
-                        $('#stockout').text('stockout');
-
-                    }
-
-                    $('select[name="size"]').empty();
-                    $.each(data.size,function(key,value){
-                        $('select[name="size"]').append('<option value=" ' + value + ' "> '+ value +' </option>')
-
-                        if (data.size == '') {
-                            $('#sizeArea').hide();
-                        }else {
-                            $('#sizeArea').show();
+                    }else{
+                    
+                Toast.fire({
+                            type: 'error',
+                            icon: 'error', 
+                            title: data.error, 
+                            })
                         }
-                    }) // end size
+
+                    // End Message  
 
 
-                    $('select[name="color"]').empty();
-                    $.each(data.color,function(key,value){
-                        $('select[name="color"]').append('<option value=" ' + value + ' "> '+ value +' </option>')
-
-                        if (data.color == '') {
-                            $('#colorArea').hide();
-                        }else {
-                            $('#colorArea').show();
                         }
-                    }) // end color
+                    })
+        }
+
+        // Start CouponCalculation Method   
+        function couponCalculation(){
+            $.ajax({
+                type: 'GET',
+                url: "/coupon-calculation",
+                dataType: 'json',
+                success:function(data){
+                if (data.total) {
+                    $('#couponCalField').html(
+                    `   <tr>
+                            <td class="cart_total_label">
+                                <h6 class="text-muted">Subtotal</h6>
+                            </td>
+                            <td class="cart_total_amount">
+                                <h4 class="text-brand text-end">$${data.total}</h4>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="cart_total_label">
+                                <h6 class="text-muted">Grand Total</h6>
+                            </td>
+                            <td class="cart_total_amount">
+                                <h4 class="text-brand text-end">$${data.total}</h4>
+                            </td>
+                        </tr>
+                    ` ) 
+                }else{
+                    $('#couponCalField').html(
+                        `<tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Subtotal</h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h4 class="text-brand text-end">$${data.subtotal}</h4>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Coupon </h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h6 class="text-brand text-end">${data.coupon_name} <a type="submit" onclick="couponRemove()"><i class="fi-rs-trash"></i> </a> </h6>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Discount Amount  </h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h4 class="text-brand text-end">$${data.discount_amount}</h4>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Grand Total </h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h4 class="text-brand text-end">$${data.total_amount}</h4>
+                        </td>
+                    </tr> `
+                        ) 
+                } 
 
                 }
             })
+        }  
 
-
-        } // END product view with model
-        
-
-        // start add to cart product
-
-        // function addToCart(){
-        //     var product_name = $('#pname').text();
-        //     var id = $('#product_id').val();
-        //     var color = $('#color option:selected').text();
-        //     var size = $('#size option:selected').text();
-        //     var quantity = $('#qty').val();
-
-        //     $.ajax({
-        //         type : "POST",
-        //         dataType : "json" ,
-        //         data : {
-        //             color:color,
-        //             size:size,
-        //             quantity:quantity,
-        //             product_name:product_name,
-        //         },
-        //         url: "/cart/data/store/"+id,
-        //         success:function(data){
-        //             console.log(data);
-        //         }
-        //     })
-
-        // } // END add to cart product
-        
+        couponCalculation();
 
     </script>
+<!--  ////////////// End Apply Coupon ////////////// -->
 
 </body>
 

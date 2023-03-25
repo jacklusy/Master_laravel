@@ -103,26 +103,26 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 	<script>
-	@if(Session::has('message'))
-	var type = "{{ Session::get('alert-type','info') }}"
-	switch(type){
-		case 'info':
-		toastr.info(" {{ Session::get('message') }} ");
-		break;
+		@if(Session::has('message'))
+		var type = "{{ Session::get('alert-type','info') }}"
+		switch(type){
+			case 'info':
+			toastr.info(" {{ Session::get('message') }} ");
+			break;
 
-		case 'success':
-		toastr.success(" {{ Session::get('message') }} ");
-		break;
+			case 'success':
+			toastr.success(" {{ Session::get('message') }} ");
+			break;
 
-		case 'warning':
-		toastr.warning(" {{ Session::get('message') }} ");
-		break;
+			case 'warning':
+			toastr.warning(" {{ Session::get('message') }} ");
+			break;
 
-		case 'error':
-		toastr.error(" {{ Session::get('message') }} ");
-		break; 
-	}
-	@endif 
+			case 'error':
+			toastr.error(" {{ Session::get('message') }} ");
+			break; 
+		}
+		@endif 
 	</script>
 		
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
