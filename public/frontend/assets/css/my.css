@@ -1,0 +1,152 @@
+* {
+    color: #BE7741 !important;
+}
+.header-style-1 .header-middle-ptb-1 {
+    padding: 15px 0 !important; 
+    background-color: white ;
+}
+
+.logo.logo-width-1 a img {
+    width: 150px;
+    min-width: 150px;
+    height: 50px;
+}
+
+.header-style-1 .search-style-2 form {
+    max-width: 618px;
+    border-radius: 50px;
+    border: 1px #BE7741 solid;
+
+}
+.header-style-1 .search-style-2 form input {
+    background: transparent;
+}
+
+
+.header-action-2 .header-action-icon-2 > a span.pro-count.blue {
+    background-color:#BE7741;
+    color: #fff !important;
+}
+.header-action-2 .header-action-icon-2 span.lable {
+    color: white;
+}
+
+.hero-slider-1 .slider-content form button {
+    background-color :#BE7741;
+    color: white !important;
+}
+
+.hero-slider-1 .slider-content form button:hover {
+    background-color: #BE7741 !important;
+   
+}
+
+.product-cart-wrap .product-img-action-wrap .product-img-zoom a img {
+    width: 250px;
+    height: 230px;
+}
+
+.product-cart-wrap .product-card-bottom {
+    justify-content: space-around;
+}
+.product-cart-wrap .product-card-bottom .addcart {
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+}
+.product-cart-wrap .product-card-bottom .addcart .add{
+    background-color: #BE7741 !important;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.product-cart-wrap .product-card-bottom .addcart .add:hover {
+    background-color: transparent !important;
+    color: #BE7741 !important;
+    border: 1px #BE7741 solid;
+}
+
+
+.product-cart-wrap .product-card-bottom .add-cart .add {
+    background-color: transparent;
+    color: #fff !important;
+}
+
+.product-cart-wrap {
+    border: none ;
+    box-shadow: 0 4px 15px -6px black;
+}
+.rowm {
+    justify-content: center;
+}
+
+.btn.btn-xs, .button.btn-xs {
+    background-color: #BE7741;
+    border-radius: 4px;
+    color: #fff !important;
+
+}
+
+.banner-img .banner-text a i {
+    color: #fff !important;
+
+}
+
+
+.product-cart-wrap .product-badges span.new {
+    background-color: #BE7741;
+    color: #fff !important;
+}
+
+.product-cart-wrap .product-badges span.hot {
+    background-color: #BE7741;
+    color: #fff !important;
+
+}
+
+.product-cart-wrap .product-card-bottom .add-cart .adds {
+    background-color: #BE7741;
+    color: #fff !important;
+}
+
+.product-cart-wrap .product-card-bottom .add-cart .adds:hover {
+    background-color: transparent;
+    color: #BE7741 !important;
+    border: 1px #BE7741 solid;
+}
+
+.btn, .button {
+    background-color: #BE7741;
+    color: #fff !important;
+    border-radius: 4px;
+
+}
+
+.banner-img.style-2 {
+    background: url(../../img/im.png);
+    background-color: #BE7741;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.banner-img.style-2 .banner-text {
+    top: 25rem;
+    padding: 0 66px;
+    
+}
+.banner-text a {
+    background-color: #fff !important;
+    color: #BE7741 !important;
+    border-radius: 4px ;
+}
+
+.hero-slider-1 .single-hero-slider {
+    border-radius: 10px;
+}
+
+footer .mobile-social-icon {
+    justify-content: flex-start;
+
+}

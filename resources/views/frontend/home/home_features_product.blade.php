@@ -1,5 +1,5 @@
 @php
-    $featured = App\Models\Product::where('featured',1)->orderBy('id','DESC')->limit(7)->get();
+    $featured = App\Models\Product::where('featured',1)->where('discount_price' , "!=" , NULL)->orderBy('id','DESC')->limit(7)->get();
 @endphp
 
 <section class="section-padding pb-5">
@@ -12,8 +12,7 @@
             <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                 <div class="banner-img style-2">
                     <div class="banner-text">
-                        <h2 class="mb-100">Bring nature into your home</h2>
-                        <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i class="fi-rs-arrow-small-right"></i></a>
+                        <a href="shop-grid-right.html" class="btn ">Learn More<i class="fi-rs-arrow-small-right" style="color: #BE7741 !important; font-size:15px;"></i></a>
                     </div>
                 </div>
             </div>
@@ -49,16 +48,14 @@
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a>
+                                                {{-- <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a> --}}
                                             </div>
                                             <h2>
                                                 <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">
                                                     {{ $product->product_name }}
                                                 </a>
                                             </h2>
-                                            <div class="product-rate d-inline-block">
-                                                <div class="product-rating" style="width: 80%"></div>
-                                            </div>
+                                            <br>
 
                                             @if ($product->discount_price == NULL)
                                                 <div class="product-price">
@@ -70,13 +67,8 @@
                                                     <span class="old-price">${{$product->selling_price}}</span>
                                                 </div>
                                             @endif
-                                            
-                                            <div class="sold mt-15 mb-15">
-                                                <div class="progress mb-5">
-                                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span class="font-xs text-heading"> Sold: 90/120</span>
-                                            </div>
+                                            <br>
+                                           
                                             <a href="shop-cart.html" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
                                         </div>
                                     </div>

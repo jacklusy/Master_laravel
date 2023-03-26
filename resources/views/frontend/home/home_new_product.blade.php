@@ -1,5 +1,5 @@
 @php
-    $products = App\Models\Product::where('status',1)->orderBy('id','ASC')->limit(10)->get();
+    $products = App\Models\Product::where('status',1)->where('discount_price' , NULL)->orderBy('id','ASC')->limit(10)->get();
     $categories = App\Models\Category::orderBy('category_name','ASC')->get();
 @endphp
 
@@ -52,18 +52,10 @@
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a>
+                                        {{-- <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a> --}}
                                     </div>
                                     <h2><a href=" {{url('product/details/'.$product->id.'/'.$product->product_slug)}} ">{{$product->product_name}}</a></h2>
-                                    <div class="product-rate-cover">
-                                        <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: 90%"></div>
-                                        </div>
-                                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-small text-muted">By <a href="vendor-details-1.html">Owner</a></span>
-                                    </div>
+                                    
                                     <div class="product-card-bottom">
                                         
                                         @if ($product->discount_price == NULL)
@@ -79,7 +71,7 @@
 
                                         
                                         <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            <a class="add adds" href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}} ">Shop Now </a>
                                         </div>
                                     </div>
                                 </div>
