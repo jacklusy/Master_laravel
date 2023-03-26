@@ -6,13 +6,16 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\UseCouponController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -213,40 +216,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     
 
-
-    /////////// Shipping Division ///////////
-
-    Route::controller(ShippingAreaController::class)->group(function(){
-    
-        Route::get('/all/division','AllDivision')->name('all.division');
-
-        Route::get('/add/division','Adddivision')->name('add.division');
-        Route::post('/store/division','StoreDivision')->name('store.division');
-
-        Route::get('/edit/division/{id}','EditDivision')->name('edit.division');
-        Route::post('/update/division','UpdateDivision')->name('update.division');
-
-        Route::get('/delete/division/{id}','DeleteDivision')->name('delete.division');
-        
-    });
-
-    /////////// Shipping District ///////////
-
-    Route::controller(ShippingAreaController::class)->group(function(){
-    
-        Route::get('/all/district','AllDistrict')->name('all.district');
-
-        Route::get('/add/district','AddDistrict')->name('add.district');
-        Route::post('/store/district','StoreDistrict')->name('store.district');
-
-        Route::get('/edit/district/{id}','EditDistrict')->name('edit.district');
-        Route::post('/update/district','UpdateDistrict')->name('update.district');
-
-        Route::get('/delete/district/{id}','DeleteDistrict')->name('delete.district');
-        
-    });
-
-    /////////// State District ///////////
+    /////////// Shipping State  ///////////
 
     Route::controller(ShippingAreaController::class)->group(function(){
     
@@ -265,7 +235,15 @@ Route::middleware(['auth','role:admin'])->group(function(){
     });
 
 
-}); // End Middleware
+    Route::controller(OrderController::class)->group(function(){
+    
+        Route::get('/pending/order','PendingOrder')->name('pending.order');
+        Route::get('/pending/order','PendingOrder')->name('admin.order.details');
+
+
+    });
+
+}); // admin End Middleware
 
 
 /// frontend product details
@@ -297,9 +275,26 @@ Route::middleware(['auth','role:user'])->group(function(){
 
     });
 
-    Route::controller(CheckoutController::class)->group(function(){
+  
 
-        Route::post('/checkout/store/','CheckoutStore')->name('checkout.store');
+    // Stripe All Route 
+
+    Route::controller(StripeController::class)->group(function(){
+        Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
+        Route::post('/cash/order' , 'CashOrder')->name('cash.order');
+    
+
+    }); 
+
+    Route::controller(AllUserController::class)->group(function(){
+
+        Route::get('/user/account/page','UserAccount')->name('user.account.page');
+        
+        Route::get('/user/change/password','UserChangePassword')->name('user.change.password');
+        
+        Route::get('/user/order/page','UserOrderPage')->name('user.order.page');
+        
+        Route::get('/user/order_details/{order_id}','UserOrderDetails');
 
     });
 

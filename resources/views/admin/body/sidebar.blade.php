@@ -111,6 +111,19 @@
             <ul>
                 <li> <a href="{{route('all.state')}}"><i class="bx bx-right-arrow-alt"></i>All State</a>
                 </li>
+                <li> <a href="{{route('add.state')}}"><i class="bx bx-right-arrow-alt"></i>Add State</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Order Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('pending.order')}}"><i class="bx bx-right-arrow-alt"></i>All State</a>
+                </li>
             </ul>
         </li>
 

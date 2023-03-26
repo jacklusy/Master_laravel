@@ -53,7 +53,7 @@ class CartController extends Controller
         $Cart->delete();
 
         $notification = array(
-            'message' => 'Brand Deleted Successfully',
+            'message' => 'Cart Deleted Successfully',
             'alert-type' => 'success'
         );
 

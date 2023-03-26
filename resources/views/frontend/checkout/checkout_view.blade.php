@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <form method="post" action="{{route('checkout.store')}}">
+    <form method="post" action="{{route('stripe.order')}}">
         @csrf
 
         <div class="row">
@@ -55,7 +55,7 @@
                     <div class="row shipping_calculator">
                         <div class="form-group col-lg-6">
                             <div class="custom_select">
-                                <select name="state_name" class="form-control">
+                                <select name="state_id" class="form-control">
                                     <option>Select State...</option>
                                     @foreach($states as $item)
                                         <option value="{{ $item->id }}">{{ $item->state_name }}</option>
@@ -138,7 +138,8 @@
                                         <h6 class="text-muted">Grand Total</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">$12.31</h4>
+                                        <h4 class="text-brand text-end">${{$AllTotal}}</h4>
+                                        <input type="hidden" value="{{$AllTotal}}" name="amount">
                                     </td>
                                 </tr>
                             </tbody>
@@ -151,27 +152,6 @@
                     <div class="payment_option">
               
                        
-                            <div class="col-12">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="stripe" type="radio" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Stripe</label>
-                                        </div>
-                                    
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="cash" type="radio" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Cash on delivery</label>
-                                        </div>
-                                    
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="card" type="radio" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Online Getway</label>
-                                        </div>
-                                    </div>
-                                
-                                </div>
-                            </div>
                     </div>
 
                     <br>
