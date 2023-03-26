@@ -238,8 +238,14 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(OrderController::class)->group(function(){
     
         Route::get('/pending/order','PendingOrder')->name('pending.order');
-        Route::get('/pending/order','PendingOrder')->name('admin.order.details');
+        Route::get('/admin/order/details/{order_id}','AdminOrderDetails')->name('admin.order.details');
 
+        Route::get('/admin/delivered/order' , 'AdminDeliveredOrder')->name('admin.delivered.order');
+
+        Route::get('/confirm/processing/{order_id}' , 'ConfirmToProcess')->name('confirm-processing');
+
+        Route::get('/admin/invoice/download/{order_id}' , 'AdminInvoiceDownload')->name('admin.invoice.download');
+      
 
     });
 
@@ -295,6 +301,8 @@ Route::middleware(['auth','role:user'])->group(function(){
         Route::get('/user/order/page','UserOrderPage')->name('user.order.page');
         
         Route::get('/user/order_details/{order_id}','UserOrderDetails');
+        
+        Route::get('/user/invoice_download/{order_id}','UserOrderInvoice');
 
     });
 
