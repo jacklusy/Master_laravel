@@ -1,5 +1,5 @@
 * {
-    color: #BE7741 !important;
+    color: #000 !important;
 }
 .header-style-1 .header-middle-ptb-1 {
     padding: 15px 0 !important; 
@@ -136,11 +136,11 @@
     padding: 0 66px;
     
 }
-.banner-text a {
+/* .banner-text a {
     background-color: #fff !important;
     color: #BE7741 !important;
     border-radius: 4px ;
-}
+} */
 
 .hero-slider-1 .single-hero-slider {
     border-radius: 10px;
@@ -149,4 +149,12 @@
 footer .mobile-social-icon {
     justify-content: flex-start;
 
+}
+
+.product-cart-wrap .product-img-action-wrap .product-img {
+    border-radius: 0px;
+}
+
+.product-cart-wrap {
+    border-radius: 0px;
 }
