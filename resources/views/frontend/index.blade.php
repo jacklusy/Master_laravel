@@ -11,11 +11,13 @@
 @include('frontend.home.home_banner')
 <!--End banners-->
 
-@include('frontend.home.home_new_product')
-<!--Products Tabs-->
 
 @include('frontend.home.home_features_product')
 <!--End Best Sales-->
+
+
+@include('frontend.home.home_new_product')
+<!--Products Tabs-->
 
 <br>
 {{-- <section class="section-padding mb-30">
