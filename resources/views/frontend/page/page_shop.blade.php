@@ -6,10 +6,10 @@
             <div class="archive-header">
                 <div class="row align-items-center">
                     <div class="col-xl-3">
-                        <h1 class="mb-15">{{$breadcat->category_name}}</h1>
+                        <h1 class="mb-15">Shop</h1>
                         <div class="breadcrumb">
                             <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span>{{$breadcat->category_name}}
+                            <span></span>Shop
                         </div>
                     </div>
                    
@@ -24,7 +24,7 @@
                     <div class="totall-product">
                         <p>We found <strong class="text-brand">{{count($products)}}</strong> items for you!</p>
                     </div>
-                  
+                   
                 </div>
                 <div class="row product-grid">
 
@@ -55,20 +55,13 @@
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a>
+                                        {{-- <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a> --}}
                                     </div>
                                     <h2><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a></h2>
-                                    <div class="product-rate-cover">
-                                        <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: 90%"></div>
-                                        </div>
-                                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-small text-muted">By <a href="vendor-details-1.html">Owner</a></span>
-                                    </div>
-                                    <div class="product-card-bottom">
 
+                                    
+                                    <div class="product-card-bottom">
+                                        
                                         @if ($product->discount_price == NULL)
                                             <div class="product-price">
                                                 <span>${{$product->selling_price}}</span>
@@ -80,9 +73,7 @@
                                             </div>
                                         @endif
 
-                                        <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -92,6 +83,7 @@
                     <!--end product card-->
                 </div>
                 <!--product grid-->
+               
                 
                 <!--End Deals-->
 
@@ -135,9 +127,7 @@
                                     <p class="price mb-0 mt-5">${{$product->discount_price}}</p>
                                 @endif
 
-                                <div class="product-rate">
-                                    <div class="product-rating" style="width: 90%"></div>
-                                </div>
+                               
 
                                 
                             </div>

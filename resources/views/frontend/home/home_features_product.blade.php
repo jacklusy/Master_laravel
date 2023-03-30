@@ -12,7 +12,7 @@
             <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                 <div class="banner-img style-2">
                     <div class="banner-text">
-                        <a href="shop-grid-right.html" class="btn ">Learn More<i class="fi-rs-arrow-small-right" style="color: #BE7741 !important; font-size:15px;"></i></a>
+                        <a href="shop-grid-right.html" class="btn " style="background-color: #fff !important; color: #BE7741 !important; ">Learn More<i class="fi-rs-arrow-small-right" style="color: #BE7741 !important; font-size:15px;"></i></a>
                     </div>
                 </div>
             </div>
@@ -67,9 +67,7 @@
                                                     <span class="old-price">${{$product->selling_price}}</span>
                                                 </div>
                                             @endif
-                                            <br>
                                            
-                                            <a href="shop-cart.html" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
                                         </div>
                                     </div>
                                 @endforeach

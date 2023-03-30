@@ -55,6 +55,8 @@
     </div> --}}
 
     <!-- Vendor JS-->
+    <script src="https://kit.fontawesome.com/b56885f075.js" crossorigin="anonymous"></script>
+    
     <script src="{{asset('frontend/assets/js/vendor/modernizr-3.6.0.min.js')}} "></script>
     <script src="{{asset('frontend/assets/js/vendor/jquery-3.6.0.min.js')}} "></script>
     <script src="{{asset('frontend/assets/js/vendor/jquery-migrate-3.3.0.min.js')}} "></script>

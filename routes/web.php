@@ -306,4 +306,12 @@ Route::middleware(['auth','role:user'])->group(function(){
 
     });
 
+    Route::controller(IndexController::class)->group(function(){
+    
+        Route::get('/user/shop/page','ShopPage')->name('user.shop.page');
+        Route::get('/user/contact/page','ContactPage')->name('user.contact.page');
+    });
+
+
+
 }); // End Middleware

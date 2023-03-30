@@ -9,7 +9,7 @@
             <h3> New Products </h3>
             <ul class="nav nav-tabs links" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">All</button>
+                    <a href="#product" class="nav-link active" id="nav-tab-one" data-bs-toggle="tab"  type="button" role="tab" aria-controls="tab-one" aria-selected="true">All</a>
                 </li>
                  
                 @foreach ($categories as $category)
@@ -23,7 +23,7 @@
         </div>
         <!--End nav-tabs-->
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
+            <div class="tab-pane fade show active" id="product" role="tabpanel" aria-labelledby="tab-one">
                 <div class="row product-grid-4">
 
                     @foreach ($products as $product)
@@ -70,9 +70,7 @@
                                         @endif
 
                                         
-                                        <div class="add-cart">
-                                            <a class="add adds" href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}} ">Shop Now </a>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>

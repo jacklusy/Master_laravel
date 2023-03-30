@@ -73,4 +73,19 @@ class IndexController extends Controller
         ));
 
     }
+    public function ShopPage() {
+        $products = Product::where('status',1)->orderBy('id','DESC')->get();
+        $categories = Category::orderBy('category_name','ASC')->get();
+        $breadcat = Category::first();
+        $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
+
+        return view('frontend.page.page_shop',compact('products','categories','breadcat','newProduct'));
+
+    }
+
+    public function ContactPage() {
+      
+        return view('frontend.page.page_contact');
+
+    }
 }
