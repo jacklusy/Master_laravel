@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\MultiImg;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -82,10 +85,31 @@ class IndexController extends Controller
         return view('frontend.page.page_shop',compact('products','categories','breadcat','newProduct'));
 
     }
-
     public function ContactPage() {
-      
-        return view('frontend.page.page_contact');
+        $user = Auth::user();
+        return view('frontend.page.page_contact',compact('user'));
 
+    }
+
+    public function StoreContact(Request $request) {
+        
+        Contact::insert([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' =>Carbon::now(),
+
+        ]);
+
+        $notification = array(
+            'message' => 'Thank you for message',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    
     }
 }

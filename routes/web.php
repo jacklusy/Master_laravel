@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\UseCouponController;
 use App\Http\Controllers\ProfileController;
@@ -249,6 +250,19 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
+    Route::controller(ContactController::class)->group(function(){
+       
+        Route::get('/all/message','AllMessage')->name('all.message');
+        Route::get('/delete/message/{id}','DeleteMessage')->name('delete.message');
+        Route::get('/reply/message/{id}','ReplyMessage')->name('reply.message');
+        Route::post('/store/replymessage/','StoreReplyMessage')->name('store.replymessage');
+
+        Route::get('/all/replymessage/','AllReplyMessage')->name('all.replymessage');
+        Route::get('/delete/replymessage/{id}','DeleteReplyMessage')->name('delete.replymessage');
+
+
+    });
+
 }); // admin End Middleware
 
 
@@ -307,11 +321,16 @@ Route::middleware(['auth','role:user'])->group(function(){
     });
 
     Route::controller(IndexController::class)->group(function(){
-    
+        
         Route::get('/user/shop/page','ShopPage')->name('user.shop.page');
+
         Route::get('/user/contact/page','ContactPage')->name('user.contact.page');
+
+        Route::post('/store/contact','StoreContact')->name('store.contact');
+
+
     });
 
-
+    
 
 }); // End Middleware

@@ -32,21 +32,23 @@
                                     <h2 class="mb-10">Stay Connected</h2>
                                     <h5 class="text-brand mb-10">WE'D LOVE TO HEAR FROM YOU</h5>
                                     <br>
-                                    <form class="contact-form-style mt-30" id="contact-form" action="#" method="post">
+                                    <form class="contact-form-style mt-30" id="contact-form" method="POST" action="{{route('store.contact')}}">
+                                        @csrf
+
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="input-style mb-20">
-                                                    <input name="name" placeholder="First Name" type="text" />
+                                                    <input name="name" placeholder="First Name" value="{{$user->name}}" type="text" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="input-style mb-20">
-                                                    <input name="email" placeholder="Your Email" type="email" />
+                                                    <input name="email" placeholder="Your Email" value="{{$user->email}}" type="email" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="input-style mb-20">
-                                                    <input name="telephone" placeholder="Your Phone" type="tel" />
+                                                    <input name="phone" placeholder="Your Phone" value="{{$user->phone}}" type="tel" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
@@ -62,7 +64,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <p class="form-messege"></p>
+                                    {{-- <p class="form-messege"></p> --}}
                                 </div>
                             </div>
                             <div class="col-lg-4 pl-50 d-lg-block d-none">
