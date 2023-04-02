@@ -186,7 +186,9 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
 .carausel-4-columns-cover .carausel-4-columns .product-cart-wrap {
     height: 30rem !important;
 }
-
+.carausel-4-columns-cover .carausel-4-columns .product-cart-wrap:hover ,.product-cart-wrap:hover {
+    border: none;
+}
 .product-cart-wrap {
     height: 26rem;
 }
@@ -381,3 +383,4 @@ footer {
 .nav-item .nav-link:hover {
     background: transparent !important;
 }
+

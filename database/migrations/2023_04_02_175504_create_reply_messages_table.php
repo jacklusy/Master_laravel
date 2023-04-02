@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('admin_id');
             $table->string('admin');
             $table->string('message_id');
-            $table->string('message');
+            $table->text('message');
             $table->text('replymessage')->nullable();
 
             $table->timestamps();

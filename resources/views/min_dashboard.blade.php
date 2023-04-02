@@ -37,9 +37,9 @@
                                 {{-- <li class="nav-item">
                                     <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} "   href="#track-orders"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>
                                 </li> --}}
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} "   href="#address"  ><i class="fi-rs-marker mr-10"></i>My Address</a>
-                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link {{ ($route ==  'reply.message.page')? 'active':  '' }} "   href="{{route('reply.message.page')}}"  ><i class="fi-rs-user mr-10"></i>Reply Message</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link {{ ($route ==  'user.account.page')? 'active':  '' }} "   href="{{route('user.account.page')}}"  ><i class="fi-rs-user mr-10"></i>Account details</a>
                                 </li>

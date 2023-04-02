@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{asset('frontend/assets/css/my.css')}} " />
+
 <header class="header-area header-style-1 header-height-2">
   
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">

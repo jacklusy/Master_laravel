@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 03:03 PM
+-- Generation Time: Apr 02, 2023 at 09:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -119,6 +119,24 @@ INSERT INTO `categories` (`id`, `category_name`, `category_slug`, `category_imag
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `coupons`
 --
 
@@ -203,7 +221,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2023_03_25_172947_create_checkouts_table', 19),
 (26, '2023_03_25_190941_create_checkouts_table', 20),
 (27, '2023_03_25_193601_create_checkouts_table', 21),
-(28, '2023_03_25_210404_create_order_items_table', 22);
+(28, '2023_03_25_210404_create_order_items_table', 22),
+(31, '2023_04_01_223417_create_contacts_table', 23),
+(32, '2023_04_02_175504_create_reply_messages_table', 23);
 
 -- --------------------------------------------------------
 
@@ -582,6 +602,31 @@ INSERT INTO `products` (`id`, `brand_id`, `category_id`, `product_name`, `produc
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reply_messages`
+--
+
+CREATE TABLE `reply_messages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `admin_id` bigint(20) UNSIGNED NOT NULL,
+  `admin` varchar(255) NOT NULL,
+  `message_id` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `replymessage` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reply_messages`
+--
+
+INSERT INTO `reply_messages` (`id`, `user_id`, `admin_id`, `admin`, `message_id`, `message`, `replymessage`, `created_at`, `updated_at`) VALUES
+(1, 9, 1, 'jack', '1', 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv', 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv', '2023-04-02 16:04:16', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ship_states`
 --
 
@@ -621,9 +666,9 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `slider_title`, `short_title`, `slider_image`, `created_at`, `updated_at`) VALUES
-(8, 'Blouse', 'Creative Clothing Ad Ideas to Boost Sales in 2023', 'upload/slider/1761576422098087.png', NULL, NULL),
-(9, 'wristwatch', 'Time gone', 'upload/slider/1761576613724634.png', NULL, '2023-03-27 23:26:12'),
-(10, 'Shoes', 'Premium Footwear And Accessories Brand | Ruosh', 'upload/slider/1761576833090187.png', NULL, '2023-03-27 23:29:42');
+(8, 'Blouse', 'Creative Clothing Ad Ideas to Boost Sales in 2023', 'upload/slider/1762094023675658.png', NULL, '2023-04-02 16:30:13'),
+(9, 'wristwatch', 'Time gone', 'upload/slider/1762094033317437.png', NULL, '2023-04-02 16:30:22'),
+(10, 'Shoes', 'Premium Footwear And Accessories Brand | Ruosh', 'upload/slider/1762094042965598.png', NULL, '2023-04-02 16:30:31');
 
 -- --------------------------------------------------------
 
@@ -691,6 +736,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
@@ -749,6 +800,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reply_messages`
+--
+ALTER TABLE `reply_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ship_states`
 --
 ALTER TABLE `ship_states`
@@ -796,6 +853,12 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
@@ -811,7 +874,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `multi_imgs`
@@ -842,6 +905,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `reply_messages`
+--
+ALTER TABLE `reply_messages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ship_states`

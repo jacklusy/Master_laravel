@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use App\Models\Order;
 use App\Models\Order_item;
+use App\Models\ReplyMessage;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,12 @@ class AllUserController extends Controller
         return view('frontend.userdashboard.user_change_password');
     }
 
+    public function ReplyMessagePage() {
+
+        $id = Auth::user()->id;
+        $replyMessage = ReplyMessage::where('user_id',$id)->orderBy('id','DESC')->get();
+        return view('frontend.userdashboard.reply_message_page',compact('replyMessage'));
+    }
 
     public function UserOrderPage() {
         $id = Auth::user()->id;
