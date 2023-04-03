@@ -1,4 +1,5 @@
-@extends('frontend.masterD')
+@extends('frontend.master_dashboard')
+
 @section('main')
 
 {{-- @section('title')
@@ -79,16 +80,16 @@
                     <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
-                                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_name) }}">
-                                    <img class="default-img" src="{{ asset( $product->product_image ) }}" alt="" />
+                                <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">
+                                    <img class="default-img" src="{{ asset( $product->product_thambnail ) }}" alt="" />
 
                                 </a>
                             </div>
 
 
                             @php
-                            $amount = $product->selling_price - $product->discount_price;
-                            $discount = ($amount/$product->selling_price) * 100;
+                                $amount = $product->selling_price - $product->discount_price;
+                                $discount = ($amount/$product->selling_price) * 100;
                             @endphp
 
 
@@ -108,10 +109,10 @@
                                 <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                             </div>
                             <h2 style="padding-top: 0px"><a
-                                    href="{{ url('product/details/'.$product->id.'/'.$product->product_name) }}"> {{
+                                    href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}"> {{
                                     $product->product_name }} </a></h2>
 
-                            <div class="product-rate-cover">
+                            {{-- <div class="product-rate-cover">
                                 @php
                                 $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
                                 $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
@@ -132,7 +133,7 @@
                                  @endif
                                 </div>
                                 <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}} reviews)</span>
-                            </div>
+                            </div> --}}
                             <div>
                                 <span class="font-small text-muted">{{ $product->product_size }} </a></span>
                             </div>
@@ -150,36 +151,13 @@
                                     <span class="old-price">{{ $product->selling_price }}JD</span>
                                 </div>
                                 @endif
-                                {{-- <div class="add-cart">
-                                    <input type="submit" class="add" value=" Add " style="height: 40px">
-                                </div> --}}
+                          
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--end product card-->
                 @endforeach
-
-
-                <!--product grid-->
-                {{-- <div class="pagination-area mt-20 mb-20">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div> --}}
-
 
             </div>
         </div>
