@@ -757,7 +757,7 @@ h6,
 .display-2,
 .heading-sm-1 {
   font-family: "Quicksand", sans-serif;
-  color: #253D4E;
+  color: #000;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -809,7 +809,7 @@ p {
 }
 
 .text-heading {
-  color: #253D4E;
+  color: #000;
 }
 
 p:last-child {
@@ -924,7 +924,7 @@ h5.widget-title {
 }
 
 .text-body {
-  color: #7E7E7E !important;
+  color: #000 !important;
 }
 
 .font-xxs {

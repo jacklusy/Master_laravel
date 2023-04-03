@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<div class="container mb-80 mt-50">
+<div class="container mb-80 mt-50 containe">
     <div class="row">
         <div class="col-lg-8 mb-40">
             <h3 class="heading-2 mb-10">Checkout</h3>
@@ -84,7 +84,7 @@
                         <h6 class="text-muted">Subtotal</h6>
                     </div>
                     <div class="divider-2 mb-30"></div>
-                    <div class="table-responsive order_table checkout">
+                    <div class="order_table checkout">
                         <table class="table no-border">
                             <tbody>
 
@@ -142,31 +142,17 @@
                                         <input type="hidden" value="{{$AllTotal}}" name="amount">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <button type="submit" class=" CheckOut btn btn-fill-out btn-block mt-30">PLACE ORDER</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
                     </div>
                 </div>
-                <div class="payment ml-30">
-                    <h4 class="mb-30">Payment</h4>
-                    <div class="payment_option">
-              
-                       
-                    </div>
-
-                    <br>
-                    <div class="payment-logo d-flex">
-                        <img class="mr-15" src="{{asset('frontend/assets/imgs/theme/icons/payment-paypal.svg')}}" alt="">
-                        <img class="mr-15" src="{{asset('frontend/assets/imgs/theme/icons/payment-visa.svg')}}" alt="">
-                        <img class="mr-15" src="{{asset('frontend/assets/imgs/theme/icons/payment-master.svg')}}" alt="">
-                        <img src="{{asset('frontend/assets/imgs/theme/icons/payment-zapper.svg')}}" alt="">
-                    </div>
-
-                    <button type="submit" class="btn btn-fill-out btn-block mt-30">Place an Order
-                        <i class="fi-rs-sign-out ml-15"></i>
-                    </button>  
-
-                </div>
+               
             </div>
         </div>
     </form>

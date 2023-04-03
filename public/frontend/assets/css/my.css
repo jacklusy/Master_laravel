@@ -1,5 +1,8 @@
 * {
-    color: #000 !important;
+    /* color: #000 !important; */
+}
+body {
+    background-color: #F7F8FA !important;
 }
 .header-style-1 .header-middle-ptb-1 {
     padding: 15px 0 !important; 
@@ -11,7 +14,13 @@
     min-width: 150px;
     height: 50px;
 }
+.archive-header {
+    border-radius: 0 !important;
+}
 
+.breadcrumb a , .breadcrumb span , .breadcrumb{
+    color: #000 !important;
+}
 .header-style-1 .search-style-2 form {
     max-width: 618px;
     border-radius: 50px;
@@ -303,10 +312,10 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
     color: #BE7741 !important;
     border: 1px #BE7741 solid;
 }
-.mt-50 {
+/* .mt-50 {
     margin-top: 193px !important;
 
-}
+} */
 
 .widget-category-2 .count {
     background-color: #BE7741;
@@ -364,10 +373,23 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
  
 }
 
-.text-brand {
-    font-size: 24px !important;
+.detail-info .product-price .current-price {
+    font-size: 30px !important;
+    padding-top: 1rem
 }
+.detail-info .product-price .old-price {
+    color: #B6B6B6 !important;
+    font-size: 24px !important;
 
+}
+.product-cart-wrap .product-content-wrap .product-price span.old-price {
+    color: #B6B6B6 !important;
+
+}
+.detail-info .product-price .save-price {
+    color: #BE7741 !important;
+
+}
 footer {
     border-top: 1px solid #ececec;
 }
@@ -384,3 +406,85 @@ footer {
     background: transparent !important;
 }
 
+
+.header-action-icon-2 a span{
+    color: #000 !important;
+}
+
+.text-body i {
+    color: #000 !important;
+  
+  }
+
+  .table-responsive {
+    display: flex;
+  }
+
+  .shopping-summery table thead {
+    margin-bottom: 2rem !important;
+    
+  }
+
+  .shopping-summery table thead th{
+    background: #fff;   
+    color: #000 !important;
+    padding: 24px 24px 24px;
+    border-radius: 0 !important;
+    /* border-bottom: 1px solid #e5e5e5; */
+  }
+  .shopping-summery table thead tr {
+    border: 0 !important;
+  }
+  .shopping-summery table td {
+    padding: 24px 24px 0;
+    text-align: center;
+  }
+  .product-des {
+    text-align: start !important;
+  }
+
+  .shopping-summery table tbody tr img {
+    border-radius: 0 !important;
+    
+  }
+
+  .CheckOut {
+    background-color: #000 !important;
+    font-family: Arial Black,Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    border-radius: 0 !important;
+  }
+
+  .text-muted {
+    color: #000 !important;
+    font-size: 20px;
+  }
+
+  .containe {
+    max-width: 1310px ;
+  }
+
+  .table tr {
+    border: none;
+  }
+
+  .cart-totals {
+    border-radius: 0;
+  }
+
+  .text-end {
+    font-size: 24px;
+  }
+
+  .product-des h6 a {
+    font-size: 14px;
+  }
+
+  .price h6 {
+    display: inline-block;
+  }
+
+  #GrandTotal {
+    display: flex;
+    justify-content: space-between;
+  }

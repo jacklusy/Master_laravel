@@ -10,106 +10,22 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                        <form action="#">
-                            <input type="text" placeholder="Search for items..." />
+                        <form action="{{ route('product.search') }}" method="post">
+                            @csrf
+                            <input name="search" placeholder="Search for items..." />
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </form>
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="search-location">
-                                <form action="#">
-                                
+                                <form action="{{ route('product.search') }}" method="post">
+                                    @csrf
+
                                 </form>
                             </div>
                            
-                            <div class="header-action-icon-2">
-                                @php
-                                if (Auth::check()) {
-                                $user_id = Auth::user()->id;
-                                $carts = App\Models\Cart::where('user_id',$user_id)->get();
-                                $count = $carts->count();
-                                }
-                                @endphp
-
-                                <a class="mini-cart-icon" href="{{ route('mycart')}}">
-                                    <img alt="img"
-                                        src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
-                                    @if (Auth::check())
-                                    <span class="pro-count blue">{{$count}}</span>
-                                    @else
-                                    <span class="pro-count blue">0</span>
-                                    @endif
-                                </a>
-
-                                <a href="{{ route('mycart')}}"><span class="lable">Cart</span></a>
-
-                                @if (Auth::check())
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        @foreach ($carts as $cart)
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a
-                                                    href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_name'])}}"><img
-                                                        alt="img"
-                                                        src="{{asset($cart['product']['product_image'])}} " /></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a
-                                                        href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_name'])}}">{{$cart['product']['product_name']}}</a>
-                                                </h4>
-                                                @if ($cart['product']['discount_price'] == NULL)
-                                                <h4><span>{{$cart->quantity}} ×
-                                                    </span>{{$cart['product']['selling_price']}} JD</h4>
-
-                                                @else
-                                                <h4><span>{{$cart->quantity}} ×
-                                                    </span>{{$cart['product']['discount_price']}} JD</h4>
-                                                @endif
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a type="submit" href="{{route('delete.cart',$cart->id)}}"><i
-                                                        class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-
-                                        @endforeach
-
-                                    </ul>
-                                    <div class="shopping-cart-footer">
-                                        @php
-                                        $AllTotal = 0;
-                                        foreach ($carts as $cart) {
-                                        $qty = $cart->quantity;
-                                        if ($cart['product']['discount_price'] == NULL) {
-
-                                        $selling_price = $cart['product']['selling_price'];
-                                        $total = $qty * $selling_price;
-                                        $AllTotal +=$total;
-                                        }else {
-                                        $discount_price = $cart['product']['discount_price'];
-                                        $total = $qty * $discount_price;
-                                        $AllTotal +=$total;
-
-                                        }
-                                        }
-                                        @endphp
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>{{$AllTotal}} JD</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="{{route('mycart')}}" class="outline">View cart</a>
-                                            @php
-                                            $finaltotal = $AllTotal + 10 ;
-                                            @endphp
-                                            <a href="{{ route('checkout' , $finaltotal) }}">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
-
+                           
                             
                             <div class="header-action-icon-2">
                                 @php
@@ -192,7 +108,7 @@
                                         <a href="{{route('dashboard')}}">
                                             <img class="svgInject" alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-user.svg')}} " />
                                         </a>
-                                        <a href="page-account.html"><span class="lable ml-0">Account</span></a>
+                                        <a href="{{route('dashboard')}}"><span class="lable ml-0">Account</span></a>
                                         <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                             <ul>
                                                 <li>

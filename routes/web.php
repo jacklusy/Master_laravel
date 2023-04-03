@@ -330,6 +330,7 @@ Route::middleware(['auth','role:user'])->group(function(){
 
         Route::post('/store/contact','StoreContact')->name('store.contact');
 
+        Route::post('/search' , 'ProductSearch')->name('product.search'); 
 
     });
 
