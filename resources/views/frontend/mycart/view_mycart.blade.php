@@ -49,9 +49,9 @@
                                             @else
                                                
                                             @endif
-                                            /
+                                            
                                             @if ($cart->size !== NULL)
-                                                <span class="text-body">{{$cart->size}} </span>
+                                                <span class="text-body">/ {{$cart->size}} </span>
                                             @else
 
                                             @endif

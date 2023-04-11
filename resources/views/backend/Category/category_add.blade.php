@@ -35,7 +35,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-email">Category Image</label>
-                                                <input type="file" id="image" name="category_image"  class="form-control padding form-control-alternative">
+                                                <input type="file" id="image" name="category_image"  class="form-control padding form-control-alternative" required>
                                             </div>
                                             <div class="form-group">
                                                 <img src="{{url('upload/default.jpg')}}"  alt="photo" class="showImage" id="showImage">

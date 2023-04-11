@@ -134,9 +134,9 @@
                                 </div>
                                 <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}} reviews)</span>
                             </div> --}}
-                            <div>
+                            {{-- <div>
                                 <span class="font-small text-muted">{{ $product->product_size }} </a></span>
-                            </div>
+                            </div> --}}
 
                             <div class="product-card-bottom">
                                 @if($product->discount_price == NULL)
@@ -162,36 +162,52 @@
             </div>
         </div>
 
-        <div class="row flex-row">
+        <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
+            <div class="sidebar-widget widget-category-2 mb-30">
+                <h5 class="section-title style-1 mb-30">Category</h5>
 
-            <div class="col-lg-1-5 primary-sidebar sticky-sidebar" style="margin-top: -850px">
-                <div class="sidebar-widget widget-category-2 mb-30">
-                    <h5 class="section-title style-1 mb-30"
-                        style="   font-family: 'object-fit: contain, object-position: 50% 50%'">Category</h5>
-                    <ul>
-
-                        <li>
-                            <a href="{{ url('/mirror_shop')}}"><img
-                                    src=" {{ asset('frontend/assets/imgs/shop/backg.jpg') }} " alt="s" />ALL MIRRORS</a>
-                        </li>
-                        @foreach($categories as $category)
+                <ul>
+                    @foreach ($categories as $category)
+                    <li>
+                        <a href="{{ url('product/category/'.$category->id.'/'.$category->category_slug) }}"> <img
+                                src="{{asset($category->category_image)}}" alt="" />{{$category->category_name}}</a>
 
                         @php
                         $products = App\Models\Product::where('category_id',$category->id)->get();
                         @endphp
 
+                        <span class="count">{{count($products)}}</span>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            <!-- Fillter By Price -->
 
-                        <li>
-                            <a href="{{url('product/category/'.$category->id.'/'.$category->category_name)}}"> <img
-                                    src=" {{ asset($category->category_image) }} " alt="" />{{ $category->category_name
-                                }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
+            <!-- Product sidebar Widget -->
+            <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
+                <h5 class="section-title style-1 mb-30">New products</h5>
+
+                @foreach ($newProduct as $product)
+                <div class="single-post clearfix">
+                    <div class="image">
+                        <img src="{{ asset($product->product_thambnail) }}" alt="#" />
+                    </div>
+                    <div class="content pt-10">
+                        <p><a
+                                href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a>
+                        </p>
+
+                        @if ($product->discount_price == NULL)
+                        <p class="price mb-0 mt-5">${{$product->selling_price}}</p>
+                        @else
+                        <p class="price mb-0 mt-5">${{$product->discount_price}}</p>
+                        @endif
+                    </div>
                 </div>
-
+                @endforeach
 
             </div>
+
         </div>
 
 

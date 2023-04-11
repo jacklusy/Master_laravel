@@ -23,7 +23,7 @@ body {
 }
 .header-style-1 .search-style-2 form {
     max-width: 618px;
-    border-radius: 50px;
+    border-radius: 5px;
     border: 1px #000 solid;
 
 }
@@ -487,4 +487,9 @@ footer {
   #GrandTotal {
     display: flex;
     justify-content: space-between;
+  }
+
+
+  .form-group .button-contactForm {
+    background-color: #000;
   }
