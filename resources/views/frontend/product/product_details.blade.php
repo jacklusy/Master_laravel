@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class="container mb-30">
+    <div class="container col-8 mb-30">
         <div class="row">
             <div class="col-xl-10 col-lg-12 m-auto">
                 <div class="product-detail accordion-detail">
@@ -202,6 +202,7 @@
                                                                     <div class="d-flex align-items-center">
                                                                         <span class="font-xs text-muted"> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }} </span>
                                                                     </div>
+                                                                    
                                                                     <div class="product-rate d-inline-block">
                             
                                                                         @if($item->rating == NULL)
@@ -262,6 +263,8 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
+                                                                    
+                                                                    
                                                                     <td class="cell-level">Quality</td>
                                                                     <td><input type="radio" name="quality" class="radio-sm"
                                                                             value="1"></td>
@@ -299,11 +302,11 @@
                 </div>
             </div>
             <br>
-            <div class="row mt-60">
+            <div class="row mt-60" >
                 <div class="col-12">
-                    <h2 class="section-title style-1 mb-30">Related products</h2>
+                    <h2 class="section-title style-1 mb-30">Customers Also Viewed</h2>
                 </div>
-                <div class="col-12">
+                <div class="col-12 container ">
                     <div class="row related-products">
                         @foreach ($relatedProduct as $product)
                             

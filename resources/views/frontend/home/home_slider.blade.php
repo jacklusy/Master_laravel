@@ -9,16 +9,7 @@
 
                 @foreach ($sliders as $slider)
                     <div class="single-hero-slider single-animation-wrap" style="background-image: url({{asset($slider->slider_image)}}">
-                        <div class="slider-content">
-                            <h1 class="display-2 mb-40">
-                                {{$slider->slider_title}}
-                            </h1>
-                            <p class="mb-65">{{$slider->short_title}}</p>
-                            <form class="form-subcriber d-flex">
-                                <input type="email" placeholder="Your emaill address" />
-                                <button class="btn" type="submit">Subscribe</button>
-                            </form>
-                        </div>
+                        
                     </div>
                 @endforeach
 

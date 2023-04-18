@@ -2,11 +2,6 @@
 
 @section('main')
 
-{{-- @section('title')
-{{ $item }} You are searching..
-@endsection --}}
-
-
 <div class="page-header mt-30 mb-50">
     <div class="container">
         <div class="archive-header">

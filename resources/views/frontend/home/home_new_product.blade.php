@@ -79,7 +79,7 @@
                                                 <div class="product-rating" style="width: 100%"></div>
                                             @endif
                                         </div>
-                                        <span class="font-small ml-5 text-muted"> ({{count($reviewcount)}})</span>
+                                        <span class="font-small ml-5 text-muted"> ({{count($reviewcount)}} Reviews)</span>
                                     </div>
                                     
                                     <div class="product-card-bottom">
@@ -149,13 +149,24 @@
                                         <h2><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a></h2>
                                         <div class="product-rate-cover">
                                             <div class="product-rate d-inline-block">
-                                                <div class="product-rating" style="width: 90%"></div>
+    
+                                                @if($avarage == 0)
+                            
+                                                    @elseif($avarage == 1 || $avarage < 2)                     
+                                                    <div class="product-rating" style="width: 20%"></div>
+                                                    @elseif($avarage == 2 || $avarage < 3)                     
+                                                    <div class="product-rating" style="width: 40%"></div>
+                                                    @elseif($avarage == 3 || $avarage < 4)                     
+                                                    <div class="product-rating" style="width: 60%"></div>
+                                                    @elseif($avarage == 4 || $avarage < 5)                     
+                                                    <div class="product-rating" style="width: 80%"></div>
+                                                    @elseif($avarage == 5 || $avarage < 5)                     
+                                                    <div class="product-rating" style="width: 100%"></div>
+                                                @endif
                                             </div>
-                                            <span class="font-small ml-5 text-muted"> (4.0)</span>
+                                            <span class="font-small ml-5 text-muted"> ({{count($reviewcount)}} Reviews)</span>
                                         </div>
-                                        <div>
-                                            <span class="font-small text-muted">By <a href="vendor-details-1.html">Owner</a></span>
-                                        </div>
+                                        
                                         <div class="product-card-bottom">
                                             
                                             @if ($product->discount_price == NULL)

@@ -9,21 +9,15 @@
                     <a href="{{ url('/') }}"><img src="{{asset('frontend/img/logo3.png')}} " alt="logo" /></a>
                 </div>
                 <div class="header-right">
-                    <div class="search-style-2">
-                        <form action="{{ route('product.search') }}" method="post">
-                            @csrf
-                            <input name="search" placeholder="Search for items..." />
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </form>
-                    </div>
+                    
                     <div class="header-action-right">
                         <div class="header-action-2">
-                            <div class="search-location">
+                            {{-- <div class="search-location">
                                 <form action="{{ route('product.search') }}" method="post">
                                     @csrf
 
                                 </form>
-                            </div>
+                            </div> --}}
                            
                            
                             
@@ -150,14 +144,9 @@
         </div>
     </div>
 
-
     @php
         $categories = App\Models\Category::orderBy('category_name','ASC')->limit(6)->get();
     @endphp
-
-
-
-
 
     <div class="header-bottom header-bottom-bg-color sticky-bar">
         <div class="container">
@@ -165,12 +154,8 @@
                 <div class="logo logo-width-1 d-block d-lg-none">
                     <a href="index.html"><img src="{{asset('frontend/img/logo3.png')}} " alt="logo" /></a>
                 </div>
-                <div class="header-nav d-none d-lg-flex">
-                    <div class="main-categori-wrap d-none d-lg-block">
-                       
-                    </div>
-
-                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
+                <div class="header-nav d-none d-lg-flex col-12">
+                        <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
                             <ul>
                                 
@@ -192,6 +177,13 @@
                             </ul>
                         </nav>
                     </div>
+                    <div class="search-style-2">
+                        <form action="{{ route('product.search') }}" method="post">
+                            @csrf
+                            <input name="search" placeholder="Search for items..." />
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </form>
+                    </div>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">
@@ -211,83 +203,58 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}" alt="logo" /></a>
+                    <a href="index.html"><img src="{{asset('frontend/img/logo3.png')}}" alt="logo" /></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
                         <i class="icon-top"></i>
                         <i class="icon-bottom"></i>
                     </button>
+                    
                 </div>
             </div>
     
     
-    
             <div class="mobile-header-content-area">
                 <div class="mobile-search search-style-3 mobile-header-border">
-                    <form action="#">
-                        <input type="text" placeholder="Search for items…" />
-                        <button type="submit"><i class="fi-rs-search"></i></button>
-                    </form>
+                    <div class="search-style-2">
+                        <form action="{{ route('product.search') }}" method="post">
+                            @csrf
+                            <input name="search" placeholder="Search for items..." />
+                        </form>
+                    </div>
                 </div>
                 <div class="mobile-menu-wrap mobile-header-border">
                     <!-- mobile menu start -->
                     <nav>
                         <ul class="mobile-menu font-heading">
-                            <li class="menu-item-has-children">
-                                <a href="{{ url('/')}}">Home</a>
-    
+                            <li>
+                                <a class="active" href="{{ url('/') }}">Home</a>
+                                
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="{{ url('/shop')}}">Mirrors</a>
-    
+
+                            <li>
+                                <a href="{{route('user.shop.page')}}">Shop</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="{{ url('/about')}}">About</a>
-    
+                            
+                            <li>
+                                <a href="#">About</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="{{ url('/contact')}}">Contact</a>
-    
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a href="#">Language</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">Arabic</a></li>
-                                   
-                                </ul>
+                            <li>
+                                <a href="{{route('user.contact.page')}}">Contact</a>
                             </li>
                         </ul>
                     </nav>
                     <!-- mobile menu end -->
     
     
-    
-    
-    
-    
-    
                 </div>
-                <div class="mobile-header-info-wrap">
-                    {{-- <div class="single-mobile-header-info">
-                        <a href="page-contact.html"><i class="fi-rs-marker"></i> Our location </a>
-                    </div> --}}
-                    <div class="single-mobile-header-info">
-                        <a href="page-login.html"><i class="fi-rs-user"></i>Log In / Sign Up </a>
-                    </div>
-                    {{-- <div class="single-mobile-header-info">
-                        <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>
-                    </div> --}}
+                <hr>
+                <div class="mobile-social-icon mb-50" style="display: flex">
+                    <a href="https://github.com/jacklusy"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jack-alloussi-747800260/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/"><i class="fa-brands fa-instagram"></i></a>
                 </div>
-                <div class="mobile-social-icon mb-50">
-                    <h6 class="mb-15">Follow Us</h6>
-                    <a href="https://www.facebook.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-facebook-white.svg') }}" alt="" /></a>
-                    <a href="https://www.twitter.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-twitter-white.svg') }}" alt="" /></a>
-                    <a href="https://www.instagram.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-instagram-white.svg') }}" alt="" /></a>
-                    <a href="https://www.pinterest.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
-                </div>
-                <div class="site-copyright">Copyright 2023 © Reflection. All rights reserved. </div>
             </div>
         </div>
     </div>

@@ -9,14 +9,8 @@
              
         </div>
         <div class="row">
-            <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
-                <div class="banner-img style-2">
-                    <div class="banner-text">
-                        <a href="shop-grid-right.html" class="btn " style="background-color: #fff !important; color: #BE7741 !important; ">Learn More<i class="fi-rs-arrow-small-right" style="color: #BE7741 !important; font-size:15px;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9 col-md-12 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
+            
+            <div class="col-lg-12    col-md-12 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                 <div class="tab-content" id="myTabContent-1">
                     <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
                         <div class="carausel-4-columns-cover arrow-center position-relative">
@@ -28,7 +22,7 @@
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">
-                                                    <img class="default-img" src="{{asset($product->product_thambnail)}} " alt="" />
+                                                    <img class="default-img" src="{{asset($product->product_thambnail)}}  " alt="" />
                                                 </a>
                                             </div>
                                             
@@ -62,22 +56,26 @@
                                                 $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
                                             @endphp
                         
-                                            <div class="product-rate d-inline-block">
-                                                @if($avarage == 0)
+                                            <div class="product-rate-cover">
+                                                <div class="product-rate d-inline-block">
+
+                                                    @if($avarage == 0)
                                 
-                                                    @elseif($avarage == 1 || $avarage < 2)                     
-                                                    <div class="product-rating" style="width: 20%"></div>
-                                                    @elseif($avarage == 2 || $avarage < 3)                     
-                                                    <div class="product-rating" style="width: 40%"></div>
-                                                    @elseif($avarage == 3 || $avarage < 4)                     
-                                                    <div class="product-rating" style="width: 60%"></div>
-                                                    @elseif($avarage == 4 || $avarage < 5)                     
-                                                    <div class="product-rating" style="width: 80%"></div>
-                                                    @elseif($avarage == 5 || $avarage < 5)                     
-                                                    <div class="product-rating" style="width: 100%"></div>
-                                                @endif
+                                                        @elseif($avarage == 1 || $avarage < 2)                     
+                                                        <div class="product-rating" style="width: 20%"></div>
+                                                        @elseif($avarage == 2 || $avarage < 3)                     
+                                                        <div class="product-rating" style="width: 40%"></div>
+                                                        @elseif($avarage == 3 || $avarage < 4)                     
+                                                        <div class="product-rating" style="width: 60%"></div>
+                                                        @elseif($avarage == 4 || $avarage < 5)                     
+                                                        <div class="product-rating" style="width: 80%"></div>
+                                                        @elseif($avarage == 5 || $avarage < 5)                     
+                                                        <div class="product-rating" style="width: 100%"></div>
+                                                    @endif
+                                                </div>
+                                                <span class="font-small ml-5 text-muted"> ({{count($reviewcount)}} Reviews)</span>
                                             </div>
-        
+
                                             <br>
 
                                             @if ($product->discount_price == NULL)

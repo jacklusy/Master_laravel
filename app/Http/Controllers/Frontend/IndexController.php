@@ -47,7 +47,7 @@ class IndexController extends Controller
 
         // $cat_id = $product->category_id;
         // $relatedProduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->limit(4)->get();
-        $relatedProduct = Product::where('id','!=',$id)->orderBy('id','DESC')->limit(4)->get();
+        $relatedProduct = Product::where('id','!=',$id)->orderBy('id','DESC')->limit(12)->get();
         return view('frontend.product.product_details',compact('product','product_color','product_size','multiImg','relatedProduct'));
     }
 
