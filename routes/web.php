@@ -323,18 +323,7 @@ Route::middleware(['auth','role:user'])->group(function(){
 
     });
 
-    Route::controller(IndexController::class)->group(function(){
-        
-        Route::get('/user/shop/page','ShopPage')->name('user.shop.page');
-
-        Route::get('/user/contact/page','ContactPage')->name('user.contact.page');
-
-        Route::post('/store/contact','StoreContact')->name('store.contact');
-
-        Route::post('/search' , 'ProductSearch')->name('product.search'); 
-
-    });
-
+   
     
    
 }); // End Middleware
@@ -348,3 +337,16 @@ Route::controller(ReviewController::class)->group(function(){
     Route::get('/review/delete/{id}' , 'ReviewDelete')->name('review.delete');
 
 });
+
+Route::controller(IndexController::class)->group(function(){
+        
+    Route::get('/user/shop/page','ShopPage')->name('user.shop.page');
+
+    Route::get('/user/contact/page','ContactPage')->name('user.contact.page');
+
+    Route::post('/store/contact','StoreContact')->name('store.contact');
+
+    Route::post('/search' , 'ProductSearch')->name('product.search'); 
+
+});
+

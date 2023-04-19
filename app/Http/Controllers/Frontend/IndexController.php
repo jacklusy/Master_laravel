@@ -92,17 +92,30 @@ class IndexController extends Controller
     }
 
     public function StoreContact(Request $request) {
-        
-        Contact::insert([
-            'user_id' => Auth::id(),
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'subject' => $request->subject,
-            'message' => $request->message,
-            'created_at' =>Carbon::now(),
+        if (Auth::id()) {
+            Contact::insert([
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'created_at' =>Carbon::now(),
+    
+            ]);
+        } else {
+            Contact::insert([
+                'user_id' => 1,
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'created_at' =>Carbon::now(),
+    
+            ]);
 
-        ]);
+        }
 
         $notification = array(
             'message' => 'Thank you for message',

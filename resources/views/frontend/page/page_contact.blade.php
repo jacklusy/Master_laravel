@@ -36,21 +36,42 @@
                                         @csrf
 
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="input-style mb-20">
-                                                    <input name="name" placeholder="First Name" value="{{$user->name}}" type="text" />
+                                            @if (Auth()->check())
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-style mb-20">
+                                                        <input name="name" placeholder="First Name" value="{{$user->name}}" type="text" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="input-style mb-20">
-                                                    <input name="email" placeholder="Your Email" value="{{$user->email}}" type="email" />
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-style mb-20">
+                                                        <input name="email" placeholder="Your Email" value="{{$user->email}}" type="email" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="input-style mb-20">
-                                                    <input name="phone" placeholder="Your Phone" value="{{$user->phone}}" type="tel" />
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-style mb-20">
+                                                        <input name="phone" placeholder="Your Phone" value="{{$user->phone}}" type="tel" />
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                
+                                            @else
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-style mb-20">
+                                                        <input name="name" placeholder="First Name" type="text" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-style mb-20">
+                                                        <input name="email" placeholder="Your Email"  type="email" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-style mb-20">
+                                                        <input name="phone" placeholder="Your Phone"  type="tel" />
+                                                    </div>
+                                                </div>
+                                            @endif
+
+
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="input-style mb-20">
                                                     <input name="subject" placeholder="Subject" type="text" />
