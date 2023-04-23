@@ -17,19 +17,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="ms-auto">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Settings</button>
-                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	
-                    <a class="dropdown-item" href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <!--end breadcrumb-->
 
@@ -48,30 +36,20 @@
                                         <label for="inputProductTitle" class="form-label">Product Name</label>
                                         <input type="text" name="product_name" class="form-control" id="inputProductTitle" placeholder="Enter product title">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Product Tags</label>
-                                        <input type="text" class="form-control" name="product_tags" data-role="tagsinput" value="new product,top product">
-                                    </div>
 
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Size</label>
-                                        <input type="text" class="form-control" name="product_size" data-role="tagsinput" value="Small,Midium,Large">
+                                        <input type="text" class="form-control" name="product_size" data-role="tagsinput" >
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Color</label>
-                                        <input type="text" class="form-control" name="product_color" data-role="tagsinput" value="Red,Blue,Black">
+                                        <input type="text" class="form-control" name="product_color" data-role="tagsinput" >
                                     </div>
 
-                                    <div class="form-group mb-3">
-                                        <label for="inputProductDescription" class="form-label">Short Description</label>
-                                        <textarea class="form-control" name="short_descp" id="inputProductDescription" rows="3"></textarea>
-                                    </div>
-
-                                    
                                     <div class="mb-3">
-                                        <label for="inputProductDescription" class="form-label">Long Description</label>
-                                        <textarea id="mytextarea" name="long_descp">Hello, World!</textarea>
+                                        <label for="inputProductDescription" class="form-label">Description</label>
+                                        <textarea id="mytextarea" name="long_descp"></textarea>
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -131,36 +109,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        
-                                        <div class="col-12">
-                                            <div class="row g-3">
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">Hot Deals</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">Featured</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">Special Offer</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">Special Deals</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
+                                       
                                         <div class="col-12">
                                             <div class="d-grid">
                                                 <button type="submit" class="btn btn-sm btn-primary">Save Change</button>

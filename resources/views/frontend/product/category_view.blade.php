@@ -148,8 +148,8 @@
                         <img src="{{ asset($product->product_thambnail) }}" alt="#" />
                     </div>
                     <div class="content pt-10">
-                        <p><a
-                                href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a>
+                        <p class="long-paragraph">
+                            <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a>
                         </p>
 
                         @if ($product->discount_price == NULL)

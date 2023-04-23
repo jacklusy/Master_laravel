@@ -756,7 +756,7 @@ h6,
 .display-1,
 .display-2,
 .heading-sm-1 {
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   color: #000;
   font-weight: 700;
   line-height: 1.2;
@@ -1012,7 +1012,7 @@ h5.widget-title {
   background-color: #BE7741;
   border-radius: 50px;
   padding: 13px 28px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .btn-default i {
@@ -1055,7 +1055,7 @@ h5.widget-title {
 }
 
 .btn {
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .btn:hover {
@@ -1091,16 +1091,16 @@ button.submit, button[type='submit'] {
   color: #ffffff;
   border: none;
   background-color: #BE7741;
-  border: 1px solid #29A56C;
+  border: 1px solid #000;
   border-radius: 10px;
 }
 
 button.submit:hover, button[type='submit']:hover {
-  background-color: #29A56C !important;
+  background-color: #000 !important;
 }
 
 .btn-brand:hover {
-  background-color: #29A56C !important;
+  background-color: #000 !important;
 }
 
 .btn-login {
@@ -1196,7 +1196,7 @@ button.submit:hover, button[type='submit']:hover {
   border: 0;
   padding: 14px 80px 14px 65px;
   background-repeat: no-repeat;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .btn.btn-brush i, .button.btn-brush i {
@@ -1331,7 +1331,7 @@ textarea:focus {
   line-height: 50px;
   font-size: 14px;
   padding: 0;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   color: #253D4E;
 }
 
@@ -1452,7 +1452,7 @@ textarea:focus {
   border: none;
   background-color: #253D4E;
   border-radius: 10px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .contact-from-area .contact-form-style button:hover {
@@ -1476,7 +1476,7 @@ textarea:focus {
 
 .form-group input:focus {
   background: transparent;
-  border-color: #BCE3C9;
+  border-color: #BE7741;
 }
 
 label {
@@ -2566,7 +2566,7 @@ input.qty-val {
 }
 
 .account .card .table > thead {
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 17px;
 }
 
@@ -2580,7 +2580,7 @@ input.qty-val {
 .card-login .social-login {
   font-size: 20px;
   font-weight: 700;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2648,7 +2648,7 @@ input.qty-val {
   border-right-color: currentcolor;
   border-bottom-color: currentcolor;
   border-left-color: currentcolor;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-weight: 600;
   line-height: 1;
 }
@@ -2713,7 +2713,7 @@ input.qty-val {
   font-size: 16px;
   color: #7E7E7E;
   padding: 15px 30px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-weight: 700;
 }
 
@@ -2750,7 +2750,7 @@ input.qty-val {
 }
 
 .tab-header .view-more {
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 13px;
   font-weight: 700;
   display: -webkit-box;
@@ -2801,7 +2801,7 @@ input.qty-val {
   height: 50px;
   line-height: 50px;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .deals-countdown .countdown-section .countdown-period {
@@ -2948,7 +2948,7 @@ input.qty-val {
   padding: 20px;
   background-color: #fff;
   border-bottom: 1px solid #ececec;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .breadcrumb {
@@ -3947,7 +3947,7 @@ table .product-thumbnail img {
   -o-transition: .2s;
 }
 
-.product-cart-wrap:hover {
+/* .product-cart-wrap:hover {
   -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid #BCE3C9;
@@ -3955,14 +3955,14 @@ table .product-thumbnail img {
   -moz-transition: .2s;
   -webkit-transition: .2s;
   -o-transition: .2s;
-}
+} */
 
-.product-cart-wrap .product-img-action-wrap {
+.product-cart-wrap .product-img-action-wrap , .product-cart-wrap .product-img-action-wrap .product-img {
   position: relative;
   background-color: #fff;
   overflow: hidden;
   max-height: 320px;
-  padding: 25px 25px 0 25px;
+  /* padding: 0 15px; */
 }
 
 .product-cart-wrap .product-img-action-wrap .product-action-1 {
@@ -4191,6 +4191,10 @@ table .product-thumbnail img {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 5px;
+
+  white-space: nowrap; /* prevent the text from wrapping to the next line */
+  overflow: hidden; /* hide any overflow text */
+  text-overflow: ellipsis; /* add dots at the end of the first line */
 }
 
 .product-cart-wrap .product-content-wrap h2 a {
@@ -4482,7 +4486,7 @@ table .product-thumbnail img {
 }
 
 .product-price {
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .product-list-small article:not(:last-child) {
@@ -5091,7 +5095,7 @@ table .product-thumbnail img {
 }
 
 .detail-qty > a:hover {
-  color: #29A56C;
+  color: #000;
 }
 
 .detail-qty > a.qty-up {
@@ -5142,7 +5146,7 @@ table .product-thumbnail img {
   padding: 8px 12px;
   border-radius: 5px;
   margin-bottom: 20px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
@@ -5256,7 +5260,7 @@ table .product-thumbnail img {
   line-height: 50px;
   font-weight: 700;
   font-size: 16px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .product-extra-link2 .button.button-add-to-cart i {
@@ -5280,7 +5284,7 @@ table .product-thumbnail img {
   padding: 13px 24px !important;
   text-align: center;
   font-weight: 700;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   text-transform: none;
   font-size: 17px;
   border-radius: 30px;
@@ -5380,7 +5384,7 @@ table .product-thumbnail img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 15px 0;
+  
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -5452,7 +5456,7 @@ table .product-thumbnail img {
   border: 1px solid #ececec;
   font-size: 17px;
   font-weight: 700;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
   padding: 10px 20px;
@@ -5536,7 +5540,7 @@ table .product-thumbnail img {
 .shopping-summery table thead th {
   background-color: #ececec;
   padding: 18px 0;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 17px;
   font-weight: 700;
   color: #253D4E;
@@ -5743,7 +5747,7 @@ table.no-border td, table.no-border th, table.no-border thead {
           box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
   padding: 10px 20px;
   border: 1px solid #ececec;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 17px;
   font-weight: 700;
 }
@@ -6371,7 +6375,7 @@ h6.post-title {
   position: relative;
   overflow: hidden;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .invoice-content .btn-check:focus + .btn,
@@ -6386,7 +6390,7 @@ h6.post-title {
 }
 
 .invoice-content .btn-download:after {
-  background: #29A56C;
+  background: #000;
 }
 
 .invoice-content .btn-print {
@@ -6440,7 +6444,7 @@ h6.post-title {
 }
 
 .invoice-content table thead {
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   color: #253D4E;
   font-weight: 700;
 }
@@ -7543,7 +7547,7 @@ h6.post-title {
   line-height: 1;
   padding: 10px 20px;
   background-color: #BE7741;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   border: 2px solid #BE7741;
 }
 
@@ -8221,7 +8225,7 @@ h6.post-title {
   color: #BE7741;
   font-size: 26px;
   font-weight: 700;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   display: block;
   line-height: 1;
 }
@@ -8399,7 +8403,7 @@ h6.post-title {
   line-height: 44px;
   border-radius: 5px;
   padding: 0 20px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 16px;
 }
 
@@ -8411,7 +8415,7 @@ h6.post-title {
 }
 
 .header-style-1 .main-categori-wrap > a:hover {
-  background-color: #29A56C;
+  background-color: #000;
 }
 
 .header-style-1 .main-menu.main-menu-light-white > nav > ul > li > a {
@@ -8488,7 +8492,7 @@ span.fi-rs-apps {
   font-size: 16px;
   font-weight: 700;
   color: #253D4E;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
 }
 
 .main-menu > nav > ul > li > a i {
@@ -9067,7 +9071,7 @@ span.fi-rs-apps {
   color: #BE7741;
   position: relative;
   font-size: 13px;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9203,7 +9207,7 @@ span.fi-rs-apps {
   line-height: 40px;
   text-align: center;
   font-weight: 700;
-  font-family: "Quicksand", sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
   font-size: 16px;
   background-color: #F2F3F4;
 }

@@ -54,7 +54,7 @@
                                     <div class="product-category">
                                         {{-- <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a> --}}
                                     </div>
-                                    <h2><a href=" {{url('product/details/'.$product->id.'/'.$product->product_slug)}} ">{{$product->product_name}}</a></h2>
+                                    <h2 class="long-paragraph"><a href=" {{url('product/details/'.$product->id.'/'.$product->product_slug)}} ">{{$product->product_name}}</a></h2>
                                     @php
 
                                         $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();

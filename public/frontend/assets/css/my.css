@@ -2,6 +2,7 @@
 body {
     background-color: #F7F8FA !important;
     font-family: Arial,Helvetica,sans-serif!important;
+    
 
 }
 .header-style-1 .header-middle-ptb-1 {
@@ -50,20 +51,12 @@ body {
     color: white;
 }
 
-.hero-slider-1 .slider-content form button {
-    background-color :#BE7741;
-    color: white !important;
-}
-
-.hero-slider-1 .slider-content form button:hover {
-    background-color: #BE7741 !important;
-   
-}
 
 .product-cart-wrap .product-img-action-wrap .product-img-zoom a img {
-    width: 250px;
-    height: 230px;
+    /* width: 250px;
+    height: 230px; */
 }
+
 
 .product-cart-wrap .product-card-bottom {
     /* justify-content: space-around; */
@@ -266,7 +259,7 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
 
 [type=button]:not(:disabled):hover, [type=reset]:not(:disabled):hover, [type=submit]:not(:disabled):hover, button:not(:disabled):hover {
 
-    background-color: #BE7741 !important;
+    background-color: #666 !important;
 }
 
 .content p a {
@@ -330,7 +323,15 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
     text-transform: none;
     font-weight: 400;
     word-break: break-word;
+    
 }
+
+.long-paragraph {
+    /* width: 300px; adjust this to the desired width of your container */
+    white-space: nowrap; /* prevent the text from wrapping to the next line */
+    overflow: hidden; /* hide any overflow text */
+    text-overflow: ellipsis; /* add dots at the end of the first line */
+  }
 
 .product-price span , .product-price span{
     color: inherit;
@@ -430,6 +431,10 @@ footer {
     text-align: start !important;
   }
 
+  .product-des h6 {
+    width: 150px !important;
+  }
+
   .shopping-summery table tbody tr img {
     border-radius: 0 !important;
     
@@ -438,8 +443,14 @@ footer {
   .CheckOut {
     background-color: #000 !important;
     font-family: Arial Black,Arial,Helvetica,sans-serif;
-    font-size: 18px;
+    font-size: 20px !important;
     border-radius: 0 !important;
+    font-weight: 700 !important;
+  }
+
+  .CheckOut:hover {
+    border: 0 !important;
+    background-color: #666 !important;
   }
 
   .text-muted {
@@ -534,4 +545,46 @@ footer {
 
 .logo3 {
     max-width: 57%;
+}
+
+
+.SignIn {
+    justify-content: center;
+}
+
+.heading_s1 {
+    text-align: center;
+}
+
+.heading_s1 h1 {
+    font-size: 43px;
+}
+
+.form-group input {
+    border-radius: 0 !important;
+    box-sizing: border-box;
+    width: 100%;
+    color: #222;
+    font-size: inherit;
+    outline: none;
+    outline-style: none;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-appearance: none;
+
+    background: transparent;
+    border: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    padding: 0 12px;
+}
+
+.form-group label {
+    color: #666;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.padding_eight_all form {
+    display: grid;
 }

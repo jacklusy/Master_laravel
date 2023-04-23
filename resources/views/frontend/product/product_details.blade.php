@@ -162,7 +162,6 @@
                                     </ul>
                                     <ul class="float-start">
                                         <li class="mb-5">Product Code: <a href="#">{{$product->product_code}}</a></li>
-                                        <li class="mb-5">Tags: <a href="#" rel="tag">{{$product->product_tags}}</a></li>
                                         <li>Stock:<span class="in-stock text-brand ml-5">({{$product->product_qty}}) Items In Stock</span></li>
                                     </ul>
                                 </div>
@@ -219,7 +218,7 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <p class="mb-10">{{ $item->comment }} <a href="#" class="reply">Reply</a></p>
+                                                                <p class="mb-10">{{ $item->comment }} </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -333,7 +332,6 @@
                                         
                                     </div>
                                     <div class="product-content-wrap">
-                                        <h2><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}" tabindex="0">{{$product->product_name}}</a></h2>
                                     
                                         
                                         @if ($product->discount_price == NULL)

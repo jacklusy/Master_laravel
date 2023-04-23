@@ -38,19 +38,19 @@ class ProductController extends Controller
 
             'product_code' => $request->product_code,
             'product_qty' => $request->product_qty,
-            'product_tags' => $request->product_tags,
+            'product_tags' => " ",
             'product_size' => $request->product_size,
             'product_color' => $request->product_color,
 
             'selling_price' => $request->selling_price,
             'discount_price' => $request->discount_price,
-            'short_descp' => $request->short_descp,
+            'short_descp' => " ",
             'long_descp' => $request->long_descp,
 
-            'hot_deals' => $request->hot_deals,
-            'featured' => $request->featured,
-            'special_offer' => $request->special_offer,
-            'special_deals' => $request->special_deals,
+            'hot_deals' => 0,
+            'featured' => 1,
+            'special_offer' => 0,
+            'special_deals' => 0,
 
             'product_thambnail' =>$save_url,
             'status' => 1,

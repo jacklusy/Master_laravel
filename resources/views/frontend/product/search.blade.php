@@ -27,46 +27,7 @@
                 <div class="totall-product" style="padding-left: 20px">
                     <p>We found <strong class="text-brand">{{ count($products) }}</strong> items for you!</p>
                 </div>
-                <div class="sort-by-product-area">
-                    <div class="sort-by-cover mr-10">
-                        <div class="sort-by-product-wrap">
-                            <div class="sort-by">
-                                <span><i class="fi-rs-apps"></i>Show:</span>
-                            </div>
-                            <div class="sort-by-dropdown-wrap">
-                                <span> 50 <i class="fi-rs-angle-small-down"></i></span>
-                            </div>
-                        </div>
-                        <div class="sort-by-dropdown">
-                            <ul>
-                                <li><a class="active" href="#">50</a></li>
-                                <li><a href="#">100</a></li>
-                                <li><a href="#">150</a></li>
-                                <li><a href="#">200</a></li>
-                                <li><a href="#">All</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="sort-by-cover">
-                        <div class="sort-by-product-wrap">
-                            <div class="sort-by">
-                                <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
-                            </div>
-                            <div class="sort-by-dropdown-wrap">
-                                <span> Featured <i class="fi-rs-angle-small-down"></i></span>
-                            </div>
-                        </div>
-                        <div class="sort-by-dropdown">
-                            <ul>
-                                <li><a class="active" href="#">Featured</a></li>
-                                <li><a href="#">Price: Low to High</a></li>
-                                <li><a href="#">Price: High to Low</a></li>
-                                <li><a href="#">Release Date</a></li>
-                                <li><a href="#">Avg. Rating</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
 
             <div class="row product-grid">
@@ -103,11 +64,11 @@
                             <div class="product-category">
                                 <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                             </div>
-                            <h2 style="padding-top: 0px"><a
+                            <h2 style="padding-top: 0px" class="long-paragraph"><a
                                     href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}"> {{
                                     $product->product_name }} </a></h2>
 
-                            {{-- <div class="product-rate-cover">
+                            <div class="product-rate-cover">
                                 @php
                                 $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
                                 $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
@@ -128,10 +89,8 @@
                                  @endif
                                 </div>
                                 <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}} reviews)</span>
-                            </div> --}}
-                            {{-- <div>
-                                <span class="font-small text-muted">{{ $product->product_size }} </a></span>
-                            </div> --}}
+                            </div>
+                          
 
                             <div class="product-card-bottom">
                                 @if($product->discount_price == NULL)
@@ -188,7 +147,7 @@
                         <img src="{{ asset($product->product_thambnail) }}" alt="#" />
                     </div>
                     <div class="content pt-10">
-                        <p><a
+                        <p class="long-paragraph"><a
                                 href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">{{$product->product_name}}</a>
                         </p>
 

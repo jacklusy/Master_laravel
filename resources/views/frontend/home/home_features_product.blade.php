@@ -44,7 +44,7 @@
                                             <div class="product-category">
                                                 {{-- <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a> --}}
                                             </div>
-                                            <h2>
+                                            <h2 class="long-paragraph">
                                                 <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}">
                                                     {{ $product->product_name }}
                                                 </a>

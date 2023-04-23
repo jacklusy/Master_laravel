@@ -42,7 +42,7 @@
                                         <img src="{{asset($cart['product']['product_thambnail'])}}" alt="#">
                                     </td>
                                     <td class="product-des product-name">
-                                        <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h6>
+                                        <h6 class="mb-5 long-paragraph"><a class="product-name mb-10 text-heading" href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h6>
                                         <div>
                                             @if ($cart->color !== NULL)
                                                 <span class="text-body">{{$cart->color}}</span>

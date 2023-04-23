@@ -93,20 +93,22 @@
                                         <td class="image product-thumbnail"><img src="{{asset($cart['product']['product_thambnail'])}}" alt="#">
                                         </td>
                                         <td>
-                                            <h6 class="w-160 mb-5"><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"
-                                                    class="text-heading">{{$cart['product']['product_name']}}</a></h6></span>
+                                            <h6 class="w-160 mb-5 long-paragraph"><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"
+                                                    class="text-heading ">{{$cart['product']['product_name']}}</a></h6></span>
                                             <div class="product-rate-cover">
 
                                                 @if ($cart->color !== NULL)
-                                                    <strong>Color : {{$cart->color}}</strong>
+                                                    <strong>{{$cart->color}}</strong>
                                                 @else
-                                                    <strong>Color : --</strong>
+                                                    <strong></strong>
                                                 @endif
-                                                
+                                                @if ($cart->color && $cart->size)
+                                                    <strong> /</strong>
+                                                @endif
                                                 @if ($cart->size !== NULL)
-                                                    <strong>Size : {{$cart->size}}</strong>
+                                                    <strong> {{$cart->size}}</strong>
                                                 @else
-                                                    <strong>Size : --</strong>
+                                                    <strong></strong>
                                                 @endif
                                             </div>
                                         </td>
@@ -144,7 +146,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button type="submit" class=" CheckOut btn btn-fill-out btn-block mt-30">PLACE ORDER</button>
+                                        <button type="submit" class="CheckOut btn mb-20 w-100">PLACE ORDER</button>
                                     </td>
                                 </tr>
                             </tbody>

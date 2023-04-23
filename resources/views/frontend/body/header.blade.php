@@ -1,4 +1,8 @@
+{{-- my-style-css --}}
 <link rel="stylesheet" href="{{asset('frontend/assets/css/my.css')}} " />
+
+{{-- font-awesome --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <header class="header-area header-style-1 header-height-2">
   
@@ -38,7 +42,7 @@
                                         <span class="pro-count blue">0</span>
                                     @endif
                                 </a>
-                                <a href="{{route('mycart')}}"><span class="lable">Cart</span></a>
+                                <a href="{{route('mycart')}}"><span class="lable"></span></a>
 
                                 @if (Auth::check())
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -48,8 +52,8 @@
                                                     <div class="shopping-cart-img">
                                                         <a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"><img alt="Nest" src="{{asset($cart['product']['product_thambnail'])}} " /></a>
                                                     </div>
-                                                    <div class="shopping-cart-title">
-                                                        <h4><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h4>
+                                                    <div class="shopping-cart-title long-paragraph">
+                                                        <h4 class="long-paragraph"><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h4>
                                                         @if ($cart['product']['discount_price'] == NULL)
                                                             <h4><span>{{$cart->quantity}} × </span>${{$cart['product']['selling_price']}}</h4>
                                                             
@@ -102,7 +106,7 @@
                                         <a href="{{route('dashboard')}}">
                                             <img class="svgInject" alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-user.svg')}} " />
                                         </a>
-                                        <a href="{{route('dashboard')}}"><span class="lable ml-0">Account</span></a>
+                                        <a href="{{route('dashboard')}}"><span class="lable ml-0"></span></a>
                                         <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                             <ul>
                                                 <li>
@@ -130,8 +134,6 @@
                                         <a href="{{route('login')}}">
                                             <img class="svgInject" alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-user.svg')}} " />
                                         </a>
-                                        <a href="{{route('login')}}"><span class="lable ml-0">Login /</span></a>
-                                        <a href="{{route('register')}}"><span class="lable ml-0">Register</span></a>
                                         
                                 @endauth
 

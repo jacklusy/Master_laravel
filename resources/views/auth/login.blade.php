@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Easy Shop Online Store</title>
+    <title>3DIMEN</title>
+    
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +13,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/assets/imgs/theme/favicon.svg')}} " />
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/img/3D.png')}} " />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css?v=5.3')}} " />
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
@@ -40,39 +41,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
-                        <div class="row">
-                            <div class="col-lg-6 pr-30 d-none d-lg-block">
-                                <img class="border-radius-15" src="{{asset('frontend/assets/imgs/page/login-1.png')}} " alt="" />
-                            </div>
+                        <div class="row SignIn">
+                         
                             <div class="col-lg-6 col-md-8">
                                 <div class="login_wrap widget-taber-content background-white">
-                                    <div class="padding_eight_all bg-white">
+                                    <div class="padding_eight_all ">
                                         <div class="heading_s1">
-                                            <h1 class="mb-5">Login</h1>
-                                            <p class="mb-30">Don't have an account? <a href="page-register.html">Create here</a></p>
+                                            <h1 class="mb-5">Sign In</h1>
                                         </div>
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
 
                                             <div class="form-group">
-                                                <input type="email" id="email"  required="" name="email" placeholder="Username or Email *" />
+                                                <label for="email">Email address:</label>
+                                                <input type="email" id="email"  required="" name="email" />
 
                                             </div>
                                             <div class="form-group">
-                                                <input required="" id="password" type="password" name="password" placeholder="Your password *" />
+                                                <label for="password">password:</label>
+                                                <input required="" id="password" type="password" name="password"/>
                                             </div>
 
-                                            <div class="login_footer form-group mb-50">
-                                                <div class="chek-form">
-                                                    <div class="custome-checkbox">
-                                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="" />
-                                                        <label class="form-check-label" for="exampleCheckbox1"><span>Remember me</span></label>
-                                                    </div>
-                                                </div>
-                                                <a class="text-muted" href="{{ route('password.request') }}">Forgot password?</a>
+                                            <div class="login_footer form-group mb-10">
+                                                
+                                                {{-- <a class="text-muted" href="{{ route('password.request') }}">Forgot password?</a> --}}
+                                                <p class="mb-30">Don't have an account? <a href="{{route('register')}}">Create here</a></p>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-heading btn-block hover-up" name="login">Log in</button>
+                                                <button type="submit" class="CheckOut btn mb-20 w-100" name="login">CONTINUE</button>
                                             </div>
                                         </form>
                                     </div>
