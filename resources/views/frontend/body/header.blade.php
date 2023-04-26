@@ -45,30 +45,36 @@
                                 <a href="{{route('mycart')}}"><span class="lable"></span></a>
 
                                 @if (Auth::check())
-                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                        <ul>
-                                            @foreach ($carts as $cart)
-                                                <li>
-                                                    <div class="shopping-cart-img">
-                                                        <a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"><img alt="Nest" src="{{asset($cart['product']['product_thambnail'])}} " /></a>
-                                                    </div>
-                                                    <div class="shopping-cart-title long-paragraph">
-                                                        <h4 class="long-paragraph"><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h4>
-                                                        @if ($cart['product']['discount_price'] == NULL)
-                                                            <h4><span>{{$cart->quantity}} × </span>${{$cart['product']['selling_price']}}</h4>
-                                                            
-                                                        @else
-                                                            <h4><span>{{$cart->quantity}} × </span>${{$cart['product']['discount_price']}}</h4>
-                                                        @endif
-                                                    </div>
-                                                    <div class="shopping-cart-delete">
-                                                        <a type="submit" href="{{route('delete.cart',$cart->id)}}"><i class="fi-rs-cross-small"></i></a>
-                                                    </div>
-                                                </li>
-                                            
-                                            @endforeach
+                                    <div class="cart-dropdown-wrap cartdropdownwrap cart-dropdown-hm2">
+                                        @if ($count === 0)
                                         
-                                        </ul>
+                                        @else
+                                            <ul>
+                                                @foreach ($carts as $cart)
+                                                    <li>
+                                                        <div class="shopping-cart-img">
+                                                            <a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"><img alt="Nest" src="{{asset($cart['product']['product_thambnail'])}} " /></a>
+                                                        </div>
+                                                        <div class="shopping-cart-title long-paragraph">
+                                                            <h4 class="long-paragraph"><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}">{{$cart['product']['product_name']}}</a></h4>
+                                                            @if ($cart['product']['discount_price'] == NULL)
+                                                                <h4><span>{{$cart->quantity}} × </span><span>{{$cart['product']['selling_price']}}JD</span> </h4>
+                                                                
+                                                            @else
+                                                                <h4><span>{{$cart->quantity}} × </span><span>{{$cart['product']['discount_price']}}JD</span></h4>
+                                                            @endif
+                                                        </div>
+                                                        <div class="shopping-cart-delete">
+                                                            <a type="submit" href="{{route('delete.cart',$cart->id)}}"><i class="fi-rs-cross-small"></i></a>
+                                                        </div>
+                                                    </li>
+                                                
+                                                @endforeach
+                                            
+                                            </ul>
+                                            
+                                        @endif
+
                                         <div class="shopping-cart-footer">
                                             @php
                                                 $AllTotal = 0;
@@ -91,8 +97,7 @@
                                                 <h4>Total <span>${{$AllTotal}}</span></h4>
                                             </div>
                                             <div class="shopping-cart-button">
-                                                <a href="{{route('mycart')}}" class="outline">View cart</a>
-                                                <a href="shop-checkout.html">Checkout</a>
+                                                <a href="{{route('mycart')}}" class="CheckOut btn mb-20 w-100">View cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -105,24 +110,29 @@
                                 
                                         <a href="{{route('dashboard')}}">
                                             <img class="svgInject" alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-user.svg')}} " />
+                                         
                                         </a>
                                         <a href="{{route('dashboard')}}"><span class="lable ml-0"></span></a>
                                         <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                             <ul>
                                                 <li>
-                                                    <a href="{{route('dashboard')}}"><i class="fi fi-rs-user mr-10"></i>My Account</a>
+                                                    <h6>{{Auth::user()->username}}</h6>
+                                                </li>
+                                                <hr>
+                                                <li>
+                                                    <a href="{{route('dashboard')}}">My Account</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('dashboard')}}"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
+                                                    <a href="{{route('user.order.page')}}">Order Tracking</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('dashboard')}}"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
+                                                    <a href="{{route('reply.message.page')}}"> My Message</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('dashboard')}}"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
+                                                    <a href="{{route('user.account.page')}}">Account Details</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('dashboard')}}"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
+                                                    <a href="{{route('user.change.password')}}">Change Password</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{route('user.logout')}}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
@@ -148,6 +158,8 @@
 
     @php
         $categories = App\Models\Category::orderBy('category_name','ASC')->limit(6)->get();
+   
+        $route = Route::current()->getName();
     @endphp
 
     <div class="header-bottom header-bottom-bg-color sticky-bar">
@@ -162,19 +174,19 @@
                             <ul>
                                 
                                 <li>
-                                    <a class="active" href="{{ url('/') }}">Home</a>
+                                    <a class="{{ ($route ==  'home')? 'active':  '' }} " href="{{ url('/') }}">Home</a>
                                     
                                 </li>
 
                                 <li>
-                                    <a href="{{route('user.shop.page')}}">Shop</a>
+                                    <a class="{{ ($route ==  'user.shop.page')? 'active':  '' }} "  href="{{route('user.shop.page')}}">Shop</a>
                                 </li>
                                 
                                 <li>
-                                    <a href="#">About</a>
+                                    <a class="{{ ($route ==  'user.about.page')? 'active':  '' }} "  href="#">About</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('user.contact.page')}}">Contact</a>
+                                    <a class="{{ ($route ==  'user.contact.page')? 'active':  '' }} "  href="{{route('user.contact.page')}}">Contact</a>
                                 </li>
                             </ul>
                         </nav>

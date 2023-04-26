@@ -32,10 +32,10 @@
 
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <input type="text" required="" name="shipping_name" value="{{Auth::user()->name}}">
+                            <input type="text" required="" name="shipping_name" placeholder="User Name" value="{{Auth::user()->name}}">
                         </div>
                         <div class="form-group col-lg-6">
-                            <input type="email" required="" name="shipping_email" value="{{Auth::user()->email}}">
+                            <input type="email" required="" name="shipping_email" placeholder="Email" value="{{Auth::user()->email}}">
                         </div>
                     </div>
 
@@ -43,11 +43,11 @@
 
                     <div class="row shipping_calculator">
                         <div class="form-group col-lg-6">
-                            <input required="" type="text" name="shipping_phone" value="{{Auth::user()->phone}}" >
+                            <input required="" type="text" name="shipping_phone" placeholder="Phone Number" value="{{Auth::user()->phone}}" >
                         </div>
                     
                         <div class="form-group col-lg-6">
-                            <input required="" type="text" name="post_code" placeholder="Post Code *">
+                            <input required="" type="text" name="post_code" placeholder="Post Code">
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input required="" type="text" name="shipping_address" value="{{Auth::user()->address}}" >
+                            <input required="" type="text" name="shipping_address" placeholder="Address" value="{{Auth::user()->address}}" >
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                     </div>
                     <div class="divider-2 mb-30"></div>
                     <div class="order_table checkout">
-                        <table class="table no-border">
+                        <table class="table tableProduct no-border">
                             <tbody>
 
                                 @foreach ($carts as $cart)
@@ -96,7 +96,7 @@
                                             <h6 class="w-160 mb-5 long-paragraph"><a href="{{url('product/details/'.$cart['product']['id'].'/'.$cart['product']['product_slug'])}}"
                                                     class="text-heading ">{{$cart['product']['product_name']}}</a></h6></span>
                                             <div class="product-rate-cover">
-
+                                                <h6 class="text-muted ">x {{$cart->quantity}}</h6>
                                                 @if ($cart->color !== NULL)
                                                     <strong>{{$cart->color}}</strong>
                                                 @else
@@ -112,12 +112,11 @@
                                                 @endif
                                             </div>
                                         </td>
-                                        <td>
-                                            <h6 class="text-muted pl-20 pr-20">x {{$cart->quantity}}</h6>
-                                        </td>
+                                       
 
                                         @if ($cart['product']['discount_price'] == NULL)
                                             <td>
+                                                
                                                 <h4 class="text-brand">${{$cart['product']['selling_price']}}</h4>
                                             </td>
                                         @else
@@ -145,7 +144,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td colspan="2">
                                         <button type="submit" class="CheckOut btn mb-20 w-100">PLACE ORDER</button>
                                     </td>
                                 </tr>

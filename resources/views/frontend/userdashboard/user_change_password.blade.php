@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
+                    <button type="submit" class="CheckOut btn ">Save Changes</button>
                 </div>
             </div>
         </form>

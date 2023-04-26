@@ -1,37 +1,37 @@
 @extends('min_dashboard')
 @section('UserDach')
-<div class="card">
-    <div class="card-header">
-        <h3 class="mb-0">Your Orders</h3>
-    </div>
-    <div class="card-body">
-        <table class="table mb-0" >
-            <thead class="table-dark">
-                <tr>
-                    <th>Sl</th>
-                        <th>Date</th>
-                        <th>Totaly</th>
-                        <th>Invoice</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
+    
+    <div class="card transparent">
+        <div class="table mb-0" >
+            <div class="">
+                <div class="flexTable backtable">
+                    <div>Invoice</div>
+                    <div>Totaly</div>
+                    <div>Status</div>
+                    <div>Order Details</div>
+                </div>
+                
+            </div>
+            <div class="">
 
                 @foreach ($orders as $key=> $order)
-                    <tr>
-                        <td>{{ $key+1 }}</td>
-                        <td>{{ $order->order_date }}</td>
-                        <td>${{ $order->amount }}</td>
-                        <td>{{ $order->invoice_no }}</td>
-                        <td>
+                    
+                    <div class="border2">
+                        <div>{{ $order->created_at }}</div>
+                        <div><a href="{{ url('user/invoice_download/'.$order->id) }}" class="btn-sm download"><i class="fa fa-download"></i></a></div>
+                    </div>
+                    <div class="flexTable borderTable marginTable">
+
+                        <div>{{ $order->invoice_no }}</div>
+                        <div>${{ $order->amount }}</div>
+                        <div>
                             @if($order->status == 'pending')
 
-                                <span class="badge rounded-pill bg-warning">Pending</span>
+                                <span class="badge rounded-pill colorView">Pending</span>
 
                             @elseif($order->status == 'deliverd')
 
-                                <span class="badge rounded-pill bg-success">Deliverd</span>
+                                <span class="badge rounded-pill text-success">Deliverd</span>
                             
                             @if($order->return_order == 1)
                             <span class="badge rounded-pill " style="background:red;">Return</span>
@@ -39,19 +39,18 @@
                             
                             @endif
                             
-                        </td>
+                        </div>
 
-                        <td>
-                            <a href="{{ url('user/order_details/'.$order->id) }}" class="btn-sm btn-success"><i class="fa fa-eye"></i> View</a>
-                            <a href="{{ url('user/invoice_download/'.$order->id) }}" class="btn-sm btn-danger"><i class="fa fa-download"></i> Invoice</a>
-                        </td>
-                    </tr>
+                        <div>
+                            <a href="{{ url('user/order_details/'.$order->id) }}" class="btn-sm colorView"><i class="fa fa-eye"></i> View</a>
+                        </div>
+                        
+                    </div>
                 @endforeach
                 
-            </tbody>
-        </table>
+            </div>
+        </div>
     </div>
-</div>
 
 @endsection
 

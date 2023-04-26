@@ -2,23 +2,14 @@
 
 @section('main')
 
-    <div class="page-header mt-30 mb-50">
+    <div class="page-header breadcrumb-wrap ">
         <div class="container">
-            <div class="archive-header">
-                <div class="row align-items-center">
-                    <div class="col-xl-3">
-                        <h1 class="mb-15">Contact</h1>
-                        <div class="breadcrumb">
-                            <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span>Contact
-                        </div>
-                    </div>
-                   
-                </div>
+            <div class="breadcrumb">
+                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> Contact
             </div>
         </div>
     </div>
-    
     <div class="page-content pt-50">
        
         <div class="container">
@@ -26,7 +17,7 @@
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <section class="mb-50">
                         
-                        <div class="row">
+                        <div class="row" style="justify-content: center;">
                             <div class="col-xl-8">
                                 <div class="contact-from-area padding-20-row-col">
                                     <h2 class="mb-10">Stay Connected</h2>
@@ -81,16 +72,14 @@
                                                 <div class="textarea-style mb-30">
                                                     <textarea name="message" placeholder="Message"></textarea>
                                                 </div>
-                                                <button class="submit submit-auto-width" type="submit">Send message</button>
+                                                <button class="CheckOut btn mb-20" type="submit">Send message</button>
                                             </div>
                                         </div>
                                     </form>
                                     {{-- <p class="form-messege"></p> --}}
                                 </div>
                             </div>
-                            <div class="col-lg-4 pl-50 d-lg-block d-none">
-                                <img class="border-radius-15 mt-50" src="{{asset('frontend/img/contact.png')}}" alt="" />
-                            </div>
+                            
                         </div>
                     </section>
                 </div>

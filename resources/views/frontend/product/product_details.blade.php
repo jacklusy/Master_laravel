@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class="container col-8 mb-30">
+    <div class="container col-12 mb-30">
         <div class="row">
             <div class="col-xl-10 col-lg-12 m-auto">
                 <div class="product-detail accordion-detail">
@@ -40,11 +40,6 @@
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="detail-info pr-30 pl-30">
 
-                                @if ($product->product_qty > 0)
-                                    <span class="stock-status in-stock"> In Stock </span>
-                                @else
-                                    <span class="stock-status out-stock"> Stock Out </span>
-                                @endif
 
                                 <h2 class="title-detail">{{$product->product_name}}</h2>
                                 <div class="product-detail-rating">
@@ -280,7 +275,7 @@
                                                         </table>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <textarea class="form-control w-100" name="comment" id="comment"
+                                                                <textarea class="form-control w-100" required name="comment" id="comment"
                                                                     cols="30" rows="9" placeholder="Write Comment"></textarea>
                                                             </div>
                                                         </div>

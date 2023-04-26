@@ -3,6 +3,7 @@ body {
     background-color: #F7F8FA !important;
     font-family: Arial,Helvetica,sans-serif!important;
     
+    
 
 }
 .header-style-1 .header-middle-ptb-1 {
@@ -51,16 +52,6 @@ body {
     color: white;
 }
 
-
-.product-cart-wrap .product-img-action-wrap .product-img-zoom a img {
-    /* width: 250px;
-    height: 230px; */
-}
-
-
-.product-cart-wrap .product-card-bottom {
-    /* justify-content: space-around; */
-}
 .product-cart-wrap .product-card-bottom .addcart {
     border-radius: 4px;
     width: 100%;
@@ -253,9 +244,10 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
 }
 
 .dot-style-1 ul li.slick-active button {
-    background-color: #BE7741 !important;
-    border:  #BE7741 !important;
+    
+    color: #BE7741 !important;
 }
+
 
 [type=button]:not(:disabled):hover, [type=reset]:not(:disabled):hover, [type=submit]:not(:disabled):hover, button:not(:disabled):hover {
 
@@ -319,11 +311,11 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
 /* ////// product details /////////  */
 
 .detail-info h2 {
-    font-size: 17px !important;
+    font-size: 14px;
     text-transform: none;
     font-weight: 400;
     word-break: break-word;
-    
+
 }
 
 .long-paragraph {
@@ -389,7 +381,13 @@ footer {
 .qty-up i , .detail-qty i{
     color: #000 !important;
 }
+.nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #222 !important;
 
+}
 .nav-item .nav-link:hover {
     background: transparent !important;
 }
@@ -571,12 +569,13 @@ footer {
     display: inline-block;
     vertical-align: bottom;
     -webkit-appearance: none;
-
     background: transparent;
     border: none;
     border: 1px solid #e5e5e5;
     border-radius: 0;
     padding: 0 12px;
+
+    height: 50px;
 }
 
 .form-group label {
@@ -587,4 +586,152 @@ footer {
 
 .padding_eight_all form {
     display: grid;
+}
+
+.flex {
+    display: flex;
+    height: 200px;
+    background-color: transparent;
+}
+
+.backCategory {
+    background-color: #767676;
+
+}
+
+.carausel-10-columns-cover .carausel-10-columns .card-2 {
+    display: flex;
+    padding: 0px;
+    width: 300px !important;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #dfdfdf !important;
+}
+
+.carausel-10-columns-cover .carausel-10-columns .slick-list .slick-track {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* ///////////// order /////////// */
+
+
+.flexTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    justify-items: center;
+}
+
+.flexTable2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    justify-items: center;
+}
+
+.borderTable {
+    border: #e0dddd 1px solid;
+}
+
+.marginTable {
+    margin-bottom: 2rem;
+
+}
+
+.borderTable div  {
+    border-right: #e0dddd 1px solid;
+    width: 100%;
+    text-align: center;
+
+}
+.border2 {
+    border: #e0dddd 1px solid;
+    border-bottom:0;
+    color: #9b9797;
+    padding-left: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.download {
+    color: #9b9797 !important;
+
+}
+.backtable {
+    background-color: #f4f4f4;
+    color: #5d5a5a;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.colorView{
+    color: #000;
+}
+
+
+/* ///////////////// message ////////// */
+
+.flexTable p {
+    width: 200px ;
+    height: 100px;
+    overflow: auto;
+}
+
+
+/* ///////////////// */
+
+.UserPhoto {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.UserPhoto input{
+    border: 0 !important;
+    padding: 0;
+    height: auto !important;
+}
+
+.flexTable2 p {
+    height: 200px; /* Set the height of the container */
+    overflow: auto; /* Make the container scrollable */
+
+    color: #666;
+    box-sizing: border-box;
+    line-height: 23px;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-family: Arial,Helvetica,sans-serif!important;
+}
+
+.product-intro__description-table , .product-intro__attr-des {
+    background-color: transparent !important;
+}
+
+.short-desc {
+    height: 200px; /* Set the height of the container */
+    overflow: auto; /* Make the container scrollable */
+ 
+}
+
+.main-menu nav ul li a {
+    font-family: Arial,Helvetica,sans-serif!important;
+
+}
+
+
+.userImg {
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px;
 }

@@ -1,31 +1,19 @@
 @extends('frontend.master_dashboard')
 
 @section('main')
-    <div class="page-header mt-30 mb-50">
+    <div class="page-header breadcrumb-wrap">
         <div class="container">
-            <div class="archive-header">
-                <div class="row align-items-center">
-                    <div class="col-xl-3">
-                        <h1 class="mb-15">Shop</h1>
-                        <div class="breadcrumb">
-                            <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span>Shop
-                        </div>
-                    </div>
-                   
-                </div>
+            <div class="breadcrumb">
+                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> Shop
             </div>
         </div>
     </div>
+        
     <div class="container mb-30">
         <div class="row flex-row-reverse">
             <div class="col-lg-4-5">
-                <div class="shop-product-fillter">
-                    <div class="totall-product">
-                        <p>We found <strong class="text-brand">{{count($products)}}</strong> items for you!</p>
-                    </div>
-                   
-                </div>
+                
                 <div class="row product-grid">
 
                     @foreach ($products as $product)
@@ -133,7 +121,6 @@
                                     $products = App\Models\Product::where('category_id',$category->id)->get();
                                 @endphp
     
-                                <span class="count">{{count($products)}}</span>
                             </li>
                         @endforeach
                     </ul>
