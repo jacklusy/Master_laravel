@@ -17,13 +17,5 @@ class Cart extends Model
 
 
     
-    // $table->integer('product_id');
-    //         $table->string('quantity')->nullable();
-
-    //         $table->integer('user_id');
-    //         $table->string('name')->nullable();
-    //         $table->string('phone')->nullable();
-    //         $table->text('address')->nullable();
-
 
 }
