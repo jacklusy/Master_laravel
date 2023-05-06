@@ -345,6 +345,8 @@ Route::controller(IndexController::class)->group(function(){
         
     Route::get('/user/shop/page','ShopPage')->name('user.shop.page');
 
+    Route::get('/user/about/page','AboutPage')->name('user.about.page');
+
     Route::get('/user/contact/page','ContactPage')->name('user.contact.page');
 
     Route::post('/store/contact','StoreContact')->name('store.contact');

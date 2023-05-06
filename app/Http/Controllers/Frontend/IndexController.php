@@ -137,4 +137,8 @@ class IndexController extends Controller
         return view('frontend.product.search',compact('products','item','categories','newProduct'));
 
     }// End Method 
+
+    public function AboutPage() {
+        return view('frontend.page.page_about');
+    }
 }

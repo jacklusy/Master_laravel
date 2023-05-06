@@ -183,7 +183,7 @@
                                 </li>
                                 
                                 <li>
-                                    <a class="{{ ($route ==  'user.about.page')? 'active':  '' }} "  href="#">About</a>
+                                    <a class="{{ ($route ==  'user.about.page')? 'active':  '' }} "  href="{{route('user.about.page')}}">About</a>
                                 </li>
                                 <li>
                                     <a class="{{ ($route ==  'user.contact.page')? 'active':  '' }} "  href="{{route('user.contact.page')}}">Contact</a>
