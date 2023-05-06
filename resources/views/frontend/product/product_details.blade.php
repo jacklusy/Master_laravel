@@ -238,13 +238,46 @@
                                     @else
                                         <div class="row">
                                             <div class="col-lg-8 col-md-12">
+                                                
                                                 <form class="form-contact comment_form" action="{{ route('store.review') }}" method="post" id="commentForm">
                                                     @csrf
 
                                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
 
                                                     <div class="row">
-                                                        <table class="table" style=" width: 60%;">
+                                                
+                                                        <div class="col-md-12">
+                                                
+                                                            <div class="stars">
+                                                
+                                                
+                                                                    <input class="star star-5 radio-sm" id="star-5" type="radio" value="5" name="quality" />
+                                                
+                                                                    <label class="star star-5 radio-sm" for="star-5"></label>
+                                                
+                                                                    <input class="star star-4 radio-sm" id="star-4" type="radio" value="4" name="quality" />
+                                                
+                                                                    <label class="star star-4 radio-sm" for="star-4"></label>
+                                                
+                                                                    <input class="star star-3 radio-sm" id="star-3" type="radio" value="3" name="quality" />
+                                                
+                                                                    <label class="star star-3 radio-sm" for="star-3"></label>
+                                                
+                                                                    <input class="star star-2 radio-sm" id="star-2" type="radio" value="2" name="quality" />
+                                                
+                                                                    <label class="star star-2 radio-sm" for="star-2"></label>
+                                                
+                                                                    <input class="star star-1 radio-sm" id="star-1" type="radio" value="1" name="quality" />
+                                                
+                                                                    <label class="star star-1 radio-sm" for="star-1"></label>
+                                                
+                                                            </div>
+                                                
+                                                
+                                                
+                                                        </div>
+
+                                                        {{-- <table class="table" style=" width: 60%;">
                                                             <thead>
                                                                 <tr>
                                                                     <th class="cell-level">&nbsp;</th>
@@ -272,7 +305,7 @@
                                                                             value="5"></td>
                                                                 </tr>
                                                             </tbody>
-                                                        </table>
+                                                        </table> --}}
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <textarea class="form-control w-100" required name="comment" id="comment"
