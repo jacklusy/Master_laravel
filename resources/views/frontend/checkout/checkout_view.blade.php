@@ -23,6 +23,15 @@
     <form method="post" action="{{route('stripe.order')}}">
         @csrf
 
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{session('status')}}
+            </div>
+            @elseif (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{session('error')}}
+            </div>
+            @endif
         <div class="row">
             <div class="col-lg-7">
 
@@ -32,10 +41,10 @@
 
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <input type="text" required="" name="shipping_name" placeholder="User Name" value="{{Auth::user()->name}}">
+                            <input type="text"  name="shipping_name" placeholder="User Name" value="{{Auth::user()->name}}">
                         </div>
                         <div class="form-group col-lg-6">
-                            <input type="email" required="" name="shipping_email" placeholder="Email" value="{{Auth::user()->email}}">
+                            <input type="email"  name="shipping_email" placeholder="Email" value="{{Auth::user()->email}}">
                         </div>
                     </div>
 
@@ -43,11 +52,11 @@
 
                     <div class="row shipping_calculator">
                         <div class="form-group col-lg-6">
-                            <input required="" type="text" name="shipping_phone" placeholder="Phone Number" value="{{Auth::user()->phone}}" >
+                            <input  type="text" name="shipping_phone" placeholder="Phone Number" value="{{Auth::user()->phone}}" >
                         </div>
                     
                         <div class="form-group col-lg-6">
-                            <input required="" type="text" name="post_code" placeholder="Post Code">
+                            <input  type="text" name="post_code" placeholder="Post Code">
                         </div>
                     </div>
 
@@ -55,7 +64,7 @@
                     <div class="row shipping_calculator">
                         <div class="form-group col-lg-6">
                             <div class="custom_select">
-                                <select name="state_id" class="form-control">
+                                <select required="" name="state_id" class="form-control">
                                     <option>Select State...</option>
                                     @foreach($states as $item)
                                         <option value="{{ $item->id }}">{{ $item->state_name }}</option>
@@ -65,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input required="" type="text" name="shipping_address" placeholder="Address" value="{{Auth::user()->address}}" >
+                            <input  type="text" name="shipping_address" placeholder="Address" value="{{Auth::user()->address}}" >
                         </div>
                     </div>
 
@@ -117,11 +126,11 @@
                                         @if ($cart['product']['discount_price'] == NULL)
                                             <td>
                                                 
-                                                <h4 class="text-brand">${{$cart['product']['selling_price']}}</h4>
+                                                <h4 class="text-brand">{{$cart['product']['selling_price']}} JD </h4>
                                             </td>
                                         @else
                                             <td>
-                                                <h4 class="text-brand">${{$cart['product']['discount_price']}}</h4>
+                                                <h4 class="text-brand">{{$cart['product']['discount_price']}} JD </h4>
                                             </td>
                                         @endif
 
@@ -139,7 +148,7 @@
                                         <h6 class="text-muted">Grand Total</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">${{$AllTotal}}</h4>
+                                        <h4 class="text-brand text-end">{{$AllTotal}} JD </h4>
                                         <input type="hidden" value="{{$AllTotal}}" name="amount">
                                     </td>
                                 </tr>

@@ -280,9 +280,9 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
 }
 
 .contact-from-area .contact-form-style button:hover {
-    background-color: #fff !important;
-    color: #BE7741 !important;
-    border: 1px #BE7741 solid;
+    background-color: #5b5b5b !important;
+    /* color: #BE7741 !important;
+    border: 1px #BE7741 solid; */
 }
 /* .mt-50 {
     margin-top: 193px !important;

@@ -80,12 +80,12 @@
 
                                             @if ($product->discount_price == NULL)
                                                 <div class="product-price">
-                                                    <span>${{$product->selling_price}}</span>
+                                                    <span>{{$product->selling_price}} JD </span>
                                                 </div>
                                             @else
                                                 <div class="product-price">
-                                                    <span>${{$product->discount_price}}</span>
-                                                    <span class="old-price">${{$product->selling_price}}</span>
+                                                    <span>{{$product->discount_price}} JD </span>
+                                                    <span class="old-price">{{$product->selling_price}} JD </span>
                                                 </div>
                                             @endif
                                            

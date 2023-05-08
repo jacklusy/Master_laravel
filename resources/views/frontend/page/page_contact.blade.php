@@ -25,7 +25,16 @@
                                     <br>
                                     <form class="contact-form-style mt-30" id="contact-form" method="POST" action="{{route('store.contact')}}">
                                         @csrf
-
+                                        
+                                            @if (session('status'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{session('status')}}
+                                            </div>
+                                            @elseif (session('error'))
+                                            <div class="alert alert-danger" role="alert">
+                                                {{session('error')}}
+                                            </div>
+                                            @endif
                                         <div class="row">
                                             @if (Auth()->check())
                                                 <div class="col-lg-6 col-md-6">

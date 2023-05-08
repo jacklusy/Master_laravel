@@ -96,7 +96,7 @@
                                     }
                                     @endphp
                                     <div class="shopping-cart-total">
-                                        <h4>Total <span>${{$AllTotal}}</span></h4>
+                                        <h4>Total <span>{{$AllTotal}} JD </span></h4>
                                     </div>
                                     <div class="shopping-cart-button">
                                         <a href="{{route('mycart')}}" class="CheckOut btn mb-20 w-100">View cart</a>
@@ -302,7 +302,7 @@
                                     }
                                     @endphp
                                     <div class="shopping-cart-total">
-                                        <h4>Total <span>${{$AllTotal}}</span></h4>
+                                        <h4>Total <span>{{$AllTotal}} JD </span></h4>
                                     </div>
                                     <div class="shopping-cart-button">
                                         <a href="{{route('mycart')}}" class="CheckOut btn mb-20 w-100">View cart</a>
@@ -372,7 +372,7 @@
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="index.html"><img src="{{asset('frontend/img/logo3.png')}}" alt="logo" /></a>
+                <a href="{{ url('/') }}"><img src="{{asset('frontend/img/logo3.png')}}" alt="logo" /></a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
@@ -407,7 +407,7 @@
                         </li>
 
                         <li>
-                            <a href="#">About</a>
+                            <a href="{{route('user.about.page')}}">About</a>
                         </li>
                         <li>
                             <a href="{{route('user.contact.page')}}">Contact</a>

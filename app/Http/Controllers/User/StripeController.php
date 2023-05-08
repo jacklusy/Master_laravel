@@ -15,6 +15,24 @@ class StripeController extends Controller
     public function StripeOrder(Request $request){
         $user_id = Auth::user()->id;
         
+        if(empty($request->state_id)){
+            return back()->with("error" , "State Doesn't Exist !!");
+        }elseif(empty($request->shipping_name)){
+            return back()->with("error" , "Shipping Name Doesn't Exist !!");
+
+        }elseif(empty($request->shipping_email)){
+            return back()->with("error" , "Shipping Eemail Doesn't Exist !!");
+
+        }elseif(empty($request->shipping_phone)){
+            return back()->with("error" , "Shipping Phone Doesn't Exist !!");
+
+        }elseif(empty($request->shipping_address)){
+            return back()->with("error" , "Shipping Address Doesn't Exist !!");
+
+        }elseif(empty($request->post_code)){
+            return back()->with("error" , "Post Code Doesn't Exist !!");
+
+        }
 
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),

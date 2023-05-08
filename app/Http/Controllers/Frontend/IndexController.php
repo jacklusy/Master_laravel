@@ -10,6 +10,7 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
 {
@@ -92,7 +93,24 @@ class IndexController extends Controller
     }
 
     public function StoreContact(Request $request) {
+        if(empty($request->name)){
+            return back()->with("error" , "name Doesn't Exist !!");
+        }elseif(empty($request->email)){
+            return back()->with("error" , "email Doesn't Exist !!");
+
+        }elseif(empty($request->phone)){
+            return back()->with("error" , "phone Doesn't Exist !!");
+
+        }elseif(empty($request->subject)){
+            return back()->with("error" , "subject Doesn't Exist !!");
+
+        }elseif(empty($request->message)){
+            return back()->with("error" , "message Doesn't Exist !!");
+
+        }
+        
         if (Auth::id()) {
+            
             Contact::insert([
                 'user_id' => Auth::id(),
                 'name' => $request->name,
@@ -103,6 +121,9 @@ class IndexController extends Controller
                 'created_at' =>Carbon::now(),
     
             ]);
+
+            
+            
         } else {
             Contact::insert([
                 'user_id' => 1,

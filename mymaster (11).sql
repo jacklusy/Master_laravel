@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 03:24 AM
+-- Generation Time: May 09, 2023 at 01:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -139,7 +139,12 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `user_id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(10, 1, 'jack', 'jack@gmail.com', '0798939333', 'Issue with Payment Method', 'hi my name', '2023-05-07 21:50:24', NULL);
+(10, 1, 'jack', 'jack@gmail.com', '0798939333', 'Issue with Payment Method', 'hi my name', '2023-05-07 21:50:24', NULL),
+(11, 1, 'JACK AL LOUSSI', 'jackwwqad@gmail.com', '0790753439', 'payment', 'hi , do you have payment', '2023-05-08 19:49:12', NULL),
+(12, 9, 'user', 'user@gmail.com', '0790753439', NULL, NULL, '2023-05-08 20:03:09', NULL),
+(13, 9, 'user', 'user@gmail.com', '0790753439', NULL, NULL, '2023-05-08 20:09:48', NULL),
+(14, 9, 'user', 'user@gmail.com', '0790753439', NULL, NULL, '2023-05-08 20:19:17', NULL),
+(15, 9, 'user', 'user@gmail.com', '0790753439', 'payment', 'hi', '2023-05-08 20:25:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -532,7 +537,9 @@ INSERT INTO `orders` (`id`, `user_id`, `state_id`, `name`, `email`, `phone`, `ad
 (30, 10, 3, 'Jack', 'jack@gmail.com', 'sdsdsd', 'xcxc', 'asa', NULL, 126.60, '1', 'EOS47085599', '25 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'deliverd', '2023-04-25 16:50:44', '2023-04-25 16:51:42'),
 (31, 9, 3, 'user', 'user@gmail.com', '34535', 'Amman', '1111', NULL, 96.60, '1', 'EOS68033299', '26 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-04-26 12:54:39', NULL),
 (32, 9, 1, 'user', 'user@gmail.com', '34535', 'dsdf', '22222', NULL, 67.60, '1', 'EOS51897530', '05 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-05 05:30:20', NULL),
-(33, 9, 1, 'user', 'user@gmail.com', '34535', 'kelo', '1212', NULL, 90.26, '1', 'EOS56835021', '08 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-07 21:32:48', NULL);
+(33, 9, 1, 'user', 'user@gmail.com', '34535', 'kelo', '1212', NULL, 90.26, '1', 'EOS56835021', '08 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-07 21:32:48', NULL),
+(34, 9, 4, 'user', 'user@gmail.com', '34535', 'dsdf', '111', NULL, 157.54, '1', 'EOS50764607', '08 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-08 19:34:30', NULL),
+(35, 9, 3, 'user', 'user@gmail.com', '0790753439', 'Amman', '111', NULL, 20.30, '1', 'EOS56284138', '08 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-08 20:45:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -572,7 +579,14 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `color`, `size`, `qty
 (68, 33, 36, 'Camel', 'EUR41', '1', 90.26, '2023-05-07 21:32:48', NULL),
 (69, 33, 43, 'Black', NULL, '1', 90.26, '2023-05-07 21:32:48', NULL),
 (70, 33, 49, 'Baby Pink', 'S', '2', 90.26, '2023-05-07 21:32:48', NULL),
-(71, 33, 21, 'Multicolor', 'S', '1', 90.26, '2023-05-07 21:32:48', NULL);
+(71, 33, 21, 'Multicolor', 'S', '1', 90.26, '2023-05-07 21:32:48', NULL),
+(72, 34, 39, 'gold', NULL, '4', 157.54, '2023-05-08 19:34:30', NULL),
+(73, 34, 16, NULL, 'M', '1', 157.54, '2023-05-08 19:34:30', NULL),
+(74, 34, 25, 'Black', NULL, '1', 157.54, '2023-05-08 19:34:30', NULL),
+(75, 34, 32, 'Light Grey', NULL, '2', 157.54, '2023-05-08 19:34:30', NULL),
+(76, 34, 11, 'Blue', 'Small', '2', 157.54, '2023-05-08 19:34:30', NULL),
+(77, 34, 10, 'Grey', 'M', '1', 157.54, '2023-05-08 19:34:30', NULL),
+(78, 35, 43, 'Black', NULL, '1', 20.30, '2023-05-08 20:45:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -829,7 +843,8 @@ INSERT INTO `reviews` (`id`, `product_id`, `user_id`, `comment`, `rating`, `stat
 (83, 45, 9, 'wow', '5', '0', '2023-04-26 16:43:52', NULL),
 (84, 39, 9, 'hi', 'on', '0', '2023-05-06 05:30:38', NULL),
 (85, 39, 9, 'very good', 'on', '0', '2023-05-06 05:30:54', NULL),
-(87, 39, 9, 'wow', '5', '1', '2023-05-06 05:36:53', '2023-05-06 05:37:21');
+(87, 39, 9, 'wow', '5', '1', '2023-05-06 05:36:53', '2023-05-06 05:37:21'),
+(88, 43, 9, 'not really good', '1', '0', '2023-05-08 19:28:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -913,7 +928,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `photo`, `phone`, `address`, `role`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'jack', 'admin', 'admin@gmail.com', NULL, '$2y$10$kQ20z2qnNsKD093.MB5uWelpDcrqq6O1O0QsBowaKEeUXWakV8H7a', '202302181541Untit.png', '0798939333', 'Amman,Jordan', 'admin', 'active', NULL, NULL, '2023-02-19 07:39:19'),
 (2, 'vendor', 'vendor', 'vendor@gmail.com', NULL, '$2y$10$XUtaQD.7CR9w4s2.1IZTvevfvUWuXihJh7Aigt7eajaeB3.2St1ie', NULL, NULL, NULL, 'vendor', 'active', NULL, NULL, NULL),
-(9, 'user', 'jack', 'user@gmail.com', NULL, '$2y$10$qmY9M0cCrwlsKCktygKOWezzmdkmtp0.4rLxYZzdzQYKTXyLdVnD2', '2023032515315d580574-8bff-4e67-aa50-e2c2420a22e2.jpg', '34535', 'dsdf', 'user', 'active', NULL, '2023-03-22 10:38:09', '2023-03-25 12:31:12'),
+(9, 'user', 'jack', 'user@gmail.com', NULL, '$2y$10$7CjTP0RP17fWhs5IhETpB.5zApzllzJztyWEF.tpOt8jsSEwY/2GK', '2023032515315d580574-8bff-4e67-aa50-e2c2420a22e2.jpg', '0790753439', 'Amman', 'user', 'active', NULL, '2023-03-22 10:38:09', '2023-05-08 19:46:08'),
 (10, 'Jack', NULL, 'jack@gmail.com', NULL, '$2y$10$.6JtXQ/mnolHTxic/DVNyuxZ0kHiSi6uBCSbYvlA7nLGh87YH6XMy', '202304231906Code cards, el juego para aprender a programar _ Blog _ Domestika.jfif', NULL, NULL, 'user', 'active', NULL, '2023-04-23 15:57:55', '2023-04-23 16:06:14');
 
 --
@@ -1061,7 +1076,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1073,7 +1088,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `coupons`
@@ -1103,13 +1118,13 @@ ALTER TABLE `multi_imgs`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1133,7 +1148,7 @@ ALTER TABLE `reply_messages`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `ship_states`

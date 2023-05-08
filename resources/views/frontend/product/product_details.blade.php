@@ -85,16 +85,16 @@
                                     <div class="product-price primary-color float-left">
 
                                         @if ($product->discount_price == NULL)
-                                            <span class="current-price text-brand">${{$product->selling_price}}</span>
+                                            <span class="current-price text-brand">{{$product->selling_price}} JD </span>
                                         @else
 
-                                            <span class="current-price text-brand">${{$product->discount_price}}</span>
+                                            <span class="current-price text-brand">{{$product->discount_price}} JD </span>
                                             <span>
                                                 <span class="save-price font-md color3 ml-15">{{round($discount)}}% Off</span>
-                                                <span class="old-price font-md ml-15">${{$product->selling_price}}</span>
+                                                <span class="old-price font-md ml-15">{{$product->selling_price}} JD </span>
                                             </span>
                                         @endif
-                                    
+                                
                                     </div>
                                 </div>
                                 
@@ -156,7 +156,7 @@
                                         <li class="mb-5">Category:<span class="text-brand">{{$product['category']['category_name']}}</span></li>
                                     </ul>
                                     <ul class="float-start">
-                                        <li class="mb-5">Product Code: <a href="#">{{$product->product_code}}</a></li>
+                                        <li class="mb-5">Product Code: <span class="text-brand">{{$product->product_code}} </span></li>
                                         <li>Stock:<span class="in-stock text-brand ml-5">({{$product->product_qty}}) Items In Stock</span></li>
                                     </ul>
                                 </div>
@@ -335,12 +335,12 @@
                                         
                                         @if ($product->discount_price == NULL)
                                             <div class="product-price">
-                                                <span>${{$product->selling_price}}</span>
+                                                <span>{{$product->selling_price}} JD </span>
                                             </div>
                                         @else
                                             <div class="product-price">
-                                                <span>${{$product->discount_price}}</span>
-                                                <span class="old-price">${{$product->selling_price}}</span>
+                                                <span>{{$product->discount_price}} JD </span>
+                                                <span class="old-price">{{$product->selling_price}} JD </span>
                                             </div>
                                         @endif
                                     </div>
