@@ -4,7 +4,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                 <span></span> <a href="shop-grid-right.html">{{$product['category']['category_name']}}</a> <span></span> {{$product->product_name}}
             </div>
         </div>
@@ -277,35 +277,6 @@
                                                 
                                                         </div>
 
-                                                        {{-- <table class="table" style=" width: 60%;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="cell-level">&nbsp;</th>
-                                                                    <th>1 star</th>
-                                                                    <th>2 star</th>
-                                                                    <th>3 star</th>
-                                                                    <th>4 star</th>
-                                                                    <th>5 star</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    
-                                                                    
-                                                                    <td class="cell-level">Quality</td>
-                                                                    <td><input type="radio" name="quality" class="radio-sm"
-                                                                            value="1"></td>
-                                                                    <td><input type="radio" name="quality" class="radio-sm"
-                                                                            value="2"></td>
-                                                                    <td><input type="radio" name="quality" class="radio-sm"
-                                                                            value="3"></td>
-                                                                    <td><input type="radio" name="quality" class="radio-sm"
-                                                                            value="4"></td>
-                                                                    <td><input type="radio" name="quality" class="radio-sm"
-                                                                            value="5"></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table> --}}
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <textarea class="form-control w-100" required name="comment" id="comment"

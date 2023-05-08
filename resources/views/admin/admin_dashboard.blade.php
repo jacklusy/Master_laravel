@@ -21,6 +21,13 @@
 	<link href="{{asset('adminbackend/assets/css/app.css')}}" rel="stylesheet">
 	<link href="{{asset('adminbackend/assets/css/icons.css')}}" rel="stylesheet">
 	<!-- Theme Style CSS -->
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
+	integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" 
+	 crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	 
 	<link rel="stylesheet" href="{{asset('adminbackend/assets/css/dark-theme.css')}}" />
 	<link rel="stylesheet" href="{{asset('adminbackend/assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{asset('adminbackend/assets/css/header-colors.css')}}" />
@@ -79,7 +86,7 @@
 		$(function() {
 			$(".knob").knob();
 		});
-	</script>
+	</script>	
 	<script src="{{asset('adminbackend/assets/js/index.js')}}"></script>
 	<script src="{{asset('adminbackend/assets/js/validate.min.js')}}"></script>
 
@@ -94,7 +101,8 @@
 
 	{{-- end dataTables --}}
 
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 	<!--app JS-->
 	<script src="{{asset('adminbackend/assets/js/app.js')}}"></script>
@@ -124,6 +132,7 @@
 		}
 		@endif 
 	</script>
+		
 		
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		

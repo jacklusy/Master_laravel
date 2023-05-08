@@ -7,7 +7,9 @@
 
 <style type="text/css">
     * {
-        font-family: Verdana, Arial, sans-serif;
+      font-family: Arial,Helvetica,sans-serif!important;
+
+      font-size: 13px
     }
     table{
         font-size: x-small;
@@ -28,17 +30,19 @@
     }
     .authority h5 {
         margin-top: -10px;
-        color: green;
+        color: #BE7741;
         /*text-align: center;*/
         margin-left: 35px;
     }
     .thanks p {
-        color: green;;
+        color: #BE7741;;
         font-size: 16px;
         font-weight: normal;
         font-family: serif;
         margin-top: 20px;
     }
+
+    
 </style>
 
 </head>
@@ -48,17 +52,9 @@
     <tr>
         <td valign="top">
           <!-- {{-- <img src="" alt="" width="150"/> --}} -->
-          <h2 style="color: green; font-size: 26px;"><strong>EasyShop</strong></h2>
+          <h2 style="color: #BE7741; font-size: 26px;"><strong>EasyShop</strong></h2>
         </td>
-        <td align="right">
-            <pre class="font" >
-               EasyShop Head Office
-               Email:support@easylearningbd.com <br>
-               Mob: 1245454545 <br>
-               Dhaka 1207,Dhanmondi:#4 <br>
-              
-            </pre>
-        </td>
+        
     </tr>
 
   </table>
@@ -83,7 +79,7 @@
         </td>
         <td>
           <p class="font">
-            <h3><span style="color: green;">Invoice:</span> #{{ $order->invoice_no }}</h3>
+            <h3><span style="color: #BE7741;">Invoice:</span> #{{ $order->invoice_no }}</h3>
             Order Date: {{ $order->order_date }} <br>
              Delivery Date: {{ $order->delivered_date }} <br>
             Payment Type : {{ $order->payment_method }} </span>
@@ -96,7 +92,7 @@
 
 
   <table width="100%">
-    <thead style="background-color: green; color:#FFFFFF;">
+    <thead style="background-color: #BE7741; color:#FFFFFF;">
       <tr class="font">
         <th>Image</th>
         <th>Product Name</th>
@@ -146,9 +142,9 @@
   <table width="100%" style=" padding:0 10px 0 10px;">
     <tr>
         <td align="right" >
-            <h2><span style="color: green;">Subtotal:</span>${{ $order->amount }}</h2>
-            <h2><span style="color: green;">Total:</span> ${{ $order->amount }}</h2>
-            {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}}
+            <h2><span style="color: #BE7741;">Subtotal:</span>${{ $order->amount }}</h2>
+            <h2><span style="color: #BE7741;">Total:</span> ${{ $order->amount }}</h2>
+            {{-- <h2><span style="color: #BE7741;">Full Payment PAID</h2> --}}
         </td>
     </tr>
   </table>

@@ -1,154 +1,137 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--favicon-->
-    <link rel="icon" href="{{ asset('adminbackend/assets/images/favicon-32x32.png') }}" type="image/png" />
-    <!--plugins-->
-    <link href="{{ asset('adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <!-- loader-->
-    <link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script>
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
-    <title>Admin Login </title>
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('adminbackend/css/login.css')}}">
+    <meta charset="utf-8" />
+    <title>3DIMEN</title>
     
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
-
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/img/3D.png')}} " />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css?v=5.3')}} " />
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/my.css')}} " />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 </head>
 
 <body>
+   
+    {{-- @include('frontend.body.header') --}}
+   
 
+    <main class="main pages">
+        
+        <div class="page-content pt-150 pb-150">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
+                        <div class="row SignIn">
+                         
+                            <div class="col-lg-6 col-md-8">
+                                <div class="login_wrap widget-taber-content background-white">
+                                    <div class="padding_eight_all ">
+                                        <div class="heading_s1">
+                                            <h1 class="mb-5">Sign In</h1>
+                                        </div>
+                                        <form method="POST" action="{{ route('login') }}">
+                                            @csrf
 
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+                                            <div class="form-group">
+                                                <label for="email">Email address:</label>
+                                                <input type="email" id="email"  required="" name="email" />
 
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">password:</label>
+                                                <input required="" id="password" type="password" name="password"/>
+                                            </div>
 
-    {{-- <style>
-        .Contact,.Home,.About,.Events{
-            background-color: none;
-        }
-        .Login {
-            background-color: #E53854;
-        }
-    </style> --}}
-
-
-    {{-- @include('navbar') --}}
-
-    <div class="main-content">
-        <div class="container mt-7">
-                <!-- Table -->
-            <div class="row2">
-                <div class="col-xl-8 m-auto order-xl-1">
-                    <div class="card bg-secondary shadow">
-                        <h2 class="mb-5">Login</h2>
-                    
-                        @if (count($errors) > 0)
-                        <?php redirect('login'); ?>
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                        <div class="card-body">
-                            {{-- {{route('postlogin')}} --}}
-                        <form  method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="pl-lg-4">
-                            <div class="row2">
-                                <div class="col-lg-6">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="email" :value="__('Email')" >Email address</label>
-                                        <input type="email" class="form-control form-control-alternative  block mt-1 w-full"  placeholder="jesse@example.com" id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                    
+                                           <br>
+                                            <div class="form-group">
+                                                <button type="submit" class="CheckOut btn mb-20 w-100" name="login">CONTINUE</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            
                             </div>
-                            <div class="row2">
-                                <div class="col-lg-6">
-                                <div class="form-group focused">
-                                    <label class="form-control-label"  for="password" :value="__('Password')">Password</label>
-                                    <input  type="Password" 
-                                            class="form-control form-control-alternative  block mt-1 w-full" 
-                                            placeholder="First name" 
-                                            value="Lucky"
-                                            id="password" 
-                                            name="password"
-                                            required autocomplete="current-password">
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-
-                                    <br>
-                                    
-                                    <p>Don't have account ?<a href="register">Register</a></p>
-                                </div>
-                                </div>
-                            </div>  
-                            </div>
-                            <div class="col-4 text-right">
-                                <button class="ml-3">
-                                    <span>{{ __('Log in') }}</span>
-                                </button>
-                            </div>
-
-                            <hr class="my-4">
-                            
-                        </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    {{-- @include('footer') --}}
 
-    <script type="text/javascript" src="JS/log-reg.js"></script>
+    
+    <!-- Preloader Start -->
+    
+    {{-- <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="text-center">
+                    <img src="{{ asset('assets/imgs/theme/loading.gif') }}" alt="" />
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
-    <!--end wrapper-->
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('adminbackend/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <!--plugins-->
-    <script src="{{ asset('adminbackend/assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-    <!--Password show & hide js -->
-    <script>
-        $(document).ready(function () {
-            $("#show_hide_password a").on('click', function (event) {
-                event.preventDefault();
-                if ($('#show_hide_password input').attr("type") == "text") {
-                    $('#show_hide_password input').attr('type', 'password');
-                    $('#show_hide_password i').addClass("bx-hide");
-                    $('#show_hide_password i').removeClass("bx-show");
-                } else if ($('#show_hide_password input').attr("type") == "password") {
-                    $('#show_hide_password input').attr('type', 'text');
-                    $('#show_hide_password i').removeClass("bx-hide");
-                    $('#show_hide_password i').addClass("bx-show");
-                }
-            });
-        });
-    </script>
-    <!--app JS-->
-    <script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
+    <!-- Vendor JS-->
+    <script src="{{asset('frontend/assets/js/vendor/modernizr-3.6.0.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/vendor/jquery-3.6.0.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/vendor/jquery-migrate-3.3.0.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/vendor/bootstrap.bundle.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/slick.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/jquery.syotimer.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/waypoints.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/wow.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/perfect-scrollbar.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/magnific-popup.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/select2.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/counterup.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/jquery.countdown.min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/images-loaded.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/isotope.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/scrollup.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/jquery.vticker-min.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/jquery.theia.sticky.js')}} "></script>
+    <script src="{{asset('frontend/assets/js/plugins/jquery.elevatezoom.js')}} "></script>
+    <!-- Template  JS -->
+    <script src="{{asset('frontend/assets/js/main.js?v=5.3')}} "></script>
+    <script src="{{asset('frontend/assets/js/shop.js?v=5.3')}} "></script>
 
+
+    
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+	<script>
+	@if(Session::has('message'))
+	var type = "{{ Session::get('alert-type','info') }}"
+	switch(type){
+		case 'info':
+		toastr.info(" {{ Session::get('message') }} ");
+		break;
+
+		case 'success':
+		toastr.success(" {{ Session::get('message') }} ");
+		break;
+
+		case 'warning':
+		toastr.warning(" {{ Session::get('message') }} ");
+		break;
+
+		case 'error':
+		toastr.error(" {{ Session::get('message') }} ");
+		break; 
+	}
+	@endif 
+	</script>
 </body>
 
 </html>

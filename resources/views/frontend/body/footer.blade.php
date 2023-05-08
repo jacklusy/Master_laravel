@@ -28,9 +28,9 @@
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
                     <h4 class="widget-title">Pages</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0 contact-infor">
-                        <li>Shop</a></li>
-                        <li>About US</a></li>
-                        <li>Contact US</a></li>
+                        <li><a href="{{route('user.shop.page')}}">Shop</a></li>
+                        <li><a  href="{{route('user.about.page')}}">About US</a></li>
+                        <li><a    href="{{route('user.contact.page')}}">Contact US</a> </li>
                     </ul>
                 </div>
                 

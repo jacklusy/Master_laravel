@@ -93,6 +93,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 });
 
+
 Route::middleware('auth','role:vendor')->group(function(){
 
     Route::get('/vendor/dashboard',[VendorController::class,'VendorDashboard'])->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 09:45 PM
+-- Generation Time: May 08, 2023 at 03:24 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -66,10 +66,10 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `brand_name`, `brand_slug`, `brand_image`, `created_at`, `updated_at`) VALUES
-(7, 'hand', 'hand', 'upload/brand/1758516501210570.png', NULL, NULL),
-(8, 'hello', 'hello', 'upload/brand/1758516668616750.png', NULL, NULL),
-(9, 'test test test', 'test-test-test', 'upload/brand/1758517317910356.png', NULL, NULL),
-(10, 'foot1', 'foot1', 'upload/brand/1758556021408153.png', NULL, '2023-02-22 15:15:11');
+(7, 'Nike', 'nike', 'upload/brand/1765277130602879.png', NULL, '2023-05-07 19:44:20'),
+(8, 'H&M', 'h&m', 'upload/brand/1765277142476963.png', NULL, '2023-05-07 19:44:32'),
+(9, 'Zara', 'zara', 'upload/brand/1765277158519721.png', NULL, '2023-05-07 19:44:47'),
+(10, 'Adidas', 'adidas', 'upload/brand/1765277174994708.png', NULL, '2023-05-07 19:45:03');
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `category_slug`, `category_image`, `created_at`, `updated_at`) VALUES
-(1, 'Blouse & jacket', 'blouse-&-jacket', 'upload/category/1764153144641455.png', NULL, '2023-04-25 09:59:04'),
+(1, 'jacket', 'jacket', 'upload/category/1764153144641455.png', NULL, '2023-05-07 20:59:10'),
 (3, 'Pants', 'pants', 'upload/category/1764153154724708.png', NULL, '2023-04-25 09:59:13'),
 (4, 'Wristwatch', 'wristwatch', 'upload/category/1764153161981104.png', NULL, '2023-04-25 09:59:20'),
 (6, 'Shoes', 'shoes', 'upload/category/1764153169272960.png', NULL, '2023-04-25 09:59:27');
@@ -133,6 +133,13 @@ CREATE TABLE `contacts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `user_id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(10, 1, 'jack', 'jack@gmail.com', '0798939333', 'Issue with Payment Method', 'hi my name', '2023-05-07 21:50:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -523,7 +530,9 @@ INSERT INTO `orders` (`id`, `user_id`, `state_id`, `name`, `email`, `phone`, `ad
 (28, 9, 1, 'user', 'user@gmail.com', '34535', 'xcxc', '1111', 'nothing', 141.96, '1', 'EOS66536978', '25 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'deliverd', '2023-04-25 06:05:01', '2023-04-25 15:05:26'),
 (29, 9, 3, 'user', 'user@gmail.com', '34535', 'dsdf', '1212', NULL, 92.00, '1', 'EOS21853814', '25 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'deliverd', '2023-04-25 12:29:15', '2023-04-25 14:09:01'),
 (30, 10, 3, 'Jack', 'jack@gmail.com', 'sdsdsd', 'xcxc', 'asa', NULL, 126.60, '1', 'EOS47085599', '25 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'deliverd', '2023-04-25 16:50:44', '2023-04-25 16:51:42'),
-(31, 9, 3, 'user', 'user@gmail.com', '34535', 'Amman', '1111', NULL, 96.60, '1', 'EOS68033299', '26 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-04-26 12:54:39', NULL);
+(31, 9, 3, 'user', 'user@gmail.com', '34535', 'Amman', '1111', NULL, 96.60, '1', 'EOS68033299', '26 April 2023', 'April', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-04-26 12:54:39', NULL),
+(32, 9, 1, 'user', 'user@gmail.com', '34535', 'dsdf', '22222', NULL, 67.60, '1', 'EOS51897530', '05 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-05 05:30:20', NULL),
+(33, 9, 1, 'user', 'user@gmail.com', '34535', 'kelo', '1212', NULL, 90.26, '1', 'EOS56835021', '08 May 2023', 'May', '2023', NULL, NULL, NULL, NULL, 'pending', '2023-05-07 21:32:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -557,7 +566,13 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `color`, `size`, `qty
 (62, 30, 45, 'Navy Blue', NULL, '2', 126.60, '2023-04-25 16:50:44', NULL),
 (63, 31, 36, 'Camel', 'EUR41', '1', 96.60, '2023-04-26 12:54:39', NULL),
 (64, 31, 43, 'Black', NULL, '2', 96.60, '2023-04-26 12:54:39', NULL),
-(65, 31, 12, 'Blue', 'XL', '2', 96.60, '2023-04-26 12:54:39', NULL);
+(65, 31, 12, 'Blue', 'XL', '2', 96.60, '2023-04-26 12:54:39', NULL),
+(66, 32, 45, NULL, NULL, '2', 67.60, '2023-05-05 05:30:20', NULL),
+(67, 32, 19, NULL, 'S', '1', 67.60, '2023-05-05 05:30:20', NULL),
+(68, 33, 36, 'Camel', 'EUR41', '1', 90.26, '2023-05-07 21:32:48', NULL),
+(69, 33, 43, 'Black', NULL, '1', 90.26, '2023-05-07 21:32:48', NULL),
+(70, 33, 49, 'Baby Pink', 'S', '2', 90.26, '2023-05-07 21:32:48', NULL),
+(71, 33, 21, 'Multicolor', 'S', '1', 90.26, '2023-05-07 21:32:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -811,7 +826,10 @@ INSERT INTO `reviews` (`id`, `product_id`, `user_id`, `comment`, `rating`, `stat
 (80, 10, 10, 'This product has made [task] so much more enjoyable.', '5', '1', '2023-04-23 17:03:43', '2023-04-23 17:04:05'),
 (81, 10, 10, 'I can\'t recommend this product enough!', '3', '1', '2023-04-23 17:03:55', '2023-04-23 17:04:04'),
 (82, 39, 10, 'wow', NULL, '0', '2023-04-25 18:29:03', NULL),
-(83, 45, 9, 'wow', '5', '0', '2023-04-26 16:43:52', NULL);
+(83, 45, 9, 'wow', '5', '0', '2023-04-26 16:43:52', NULL),
+(84, 39, 9, 'hi', 'on', '0', '2023-05-06 05:30:38', NULL),
+(85, 39, 9, 'very good', 'on', '0', '2023-05-06 05:30:54', NULL),
+(87, 39, 9, 'wow', '5', '1', '2023-05-06 05:36:53', '2023-05-06 05:37:21');
 
 -- --------------------------------------------------------
 
@@ -831,9 +849,15 @@ CREATE TABLE `ship_states` (
 --
 
 INSERT INTO `ship_states` (`id`, `state_name`, `created_at`, `updated_at`) VALUES
-(1, 'jack', NULL, '2023-03-24 12:24:42'),
-(3, 'nooo', NULL, NULL),
-(4, 'nooo', NULL, NULL);
+(1, 'Amman', NULL, '2023-05-07 19:47:09'),
+(3, 'Aqaba', NULL, '2023-05-07 19:47:16'),
+(4, 'Irbid', NULL, '2023-05-07 19:47:24'),
+(5, 'Madaba', NULL, NULL),
+(6, 'Zarqa', NULL, NULL),
+(7, 'Balqa', NULL, NULL),
+(8, 'Karak', NULL, NULL),
+(9, 'Ma\'an', NULL, NULL),
+(10, 'Mafraq', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1037,7 +1061,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1049,7 +1073,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `coupons`
@@ -1079,13 +1103,13 @@ ALTER TABLE `multi_imgs`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1109,13 +1133,13 @@ ALTER TABLE `reply_messages`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `ship_states`
 --
 ALTER TABLE `ship_states`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sliders`

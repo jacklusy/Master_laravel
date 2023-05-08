@@ -1,23 +1,15 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{asset('adminbackend/assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+            <img src="{{asset('frontend/img/logo3.png')}}" style="width: 150px; hight:150px;" class="logo-icon" alt="logo icon">
         </div>
-        <div>
-            <h4 class="logo-text">Admin</h4>
-        </div>
+       
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
         </div>
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        <li>
-            <a href="widgets.html">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
-                </div>
-                <div class="menu-title">Dashboard</div>
-            </a>
-        </li>
+      
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
@@ -74,7 +66,7 @@
             </ul>
         </li>
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
@@ -86,9 +78,9 @@
                 <li> <a href="{{route('add.banner')}}"><i class="bx bx-right-arrow-alt"></i>Add Banner</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
@@ -100,7 +92,7 @@
                 <li> <a href="{{route('add.coupon')}}"><i class="bx bx-right-arrow-alt"></i>Add Coupon</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
         <li>
             <a href="javascript:;" class="has-arrow">

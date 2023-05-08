@@ -2,7 +2,14 @@
 @section('user')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
+<style>
+    .long-paragraph {
+        width: 300px; /* adjust this to the desired width of your container */
+        white-space: nowrap; /* prevent the text from wrapping to the next line */
+        overflow: hidden; /* hide any overflow text */
+        text-overflow: ellipsis; /* add dots at the end of the first line */
+    }
+</style>
 
 
 <div class="page-header breadcrumb-wrap">
@@ -28,25 +35,29 @@
                         <div class="dashboard-menu">
                             <ul class="nav flex-column" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} "   href="{{route('dashboard')}}" ><i class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
+                                    <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} "   href="{{route('dashboard')}}" >Dashboard</a>
+                                    <i class="fa-sharp fa-solid fa-plus"></i>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'user.order.page')? 'active':  '' }} "  href="{{route('user.order.page')}}"  ><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
+                                    <a class="nav-link {{ ($route ==  'user.order.page')? 'active':  '' }} "  href="{{route('user.order.page')}}" >Orders</a>
+                                    <i class="fa-sharp fa-solid fa-plus"></i>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} "   href="#track-orders"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>
-                                </li> --}}
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} "   href="#address"  ><i class="fi-rs-marker mr-10"></i>My Address</a>
-                                </li> --}}
+                               
                                 <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'user.account.page')? 'active':  '' }} "   href="{{route('user.account.page')}}"  ><i class="fi-rs-user mr-10"></i>Account details</a>
+                                    <a class="nav-link {{ ($route ==  'reply.message.page')? 'active':  '' }} "   href="{{route('reply.message.page')}}"  >Reply Message</a>
+                                    <i class="fa-sharp fa-solid fa-plus"></i>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ ($route ==  'user.change.password')? 'active':  '' }} "  href="{{route('user.change.password')}}"  ><i class="fi-rs-user mr-10"></i>Change Password</a>
+                                    <a class="nav-link {{ ($route ==  'user.account.page')? 'active':  '' }} "   href="{{route('user.account.page')}}"  >Account details</a>
+                                    <i class="fa-sharp fa-solid fa-plus"></i>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link "  href="{{route('user.logout')}}"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
+                                    <a class="nav-link {{ ($route ==  'user.change.password')? 'active':  '' }} "  href="{{route('user.change.password')}}"  >Change Password</a>
+                                    <i class="fa-sharp fa-solid fa-plus"></i>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link "  href="{{route('user.logout')}}">Logout</a>
+                                    <i class="fa-sharp fa-solid fa-plus"></i>
                                 </li>
                             </ul>
                         </div>
@@ -212,8 +223,8 @@
                                 <label><img src="{{ asset($item->product->product_thambnail) }}"
                                         style="width:50px; height:50px;"> </label>
                             </td>
-                            <td class="col-md-2">
-                                <label>{{ $item->product->product_name }}</label>
+                            <td class="col-md-2 ">
+                                <label class="long-paragraph">{{ $item->product->product_name }}</label>
                             </td>
                            
 

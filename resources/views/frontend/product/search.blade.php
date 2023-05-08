@@ -2,18 +2,11 @@
 
 @section('main')
 
-<div class="page-header mt-30 mb-50">
+<div class="page-header breadcrumb-wrap">
     <div class="container">
-        <div class="archive-header">
-            <div class="row align-items-center">
-                <div class="col-xl-3">
-                    <div class="breadcrumb">
-                        <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                        <span></span> {{ $item }}
-                    </div>
-                </div>
-
-            </div>
+        <div class="breadcrumb">
+            <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+            <span></span> {{ $item }}
         </div>
     </div>
 </div>
@@ -23,12 +16,7 @@
 <div class="container mb-30">
     <div class="row flex-row-reverse">
         <div class="col-lg-4-5">
-            <div class="shop-product-fillter">
-                <div class="totall-product" style="padding-left: 20px">
-                    <p>We found <strong class="text-brand">{{ count($products) }}</strong> items for you!</p>
-                </div>
-               
-            </div>
+           
 
             <div class="row product-grid">
                 @foreach($products as $product)
