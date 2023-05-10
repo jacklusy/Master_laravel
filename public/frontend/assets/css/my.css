@@ -820,3 +820,8 @@ div.stars {
   .product-intro__description-table-item {
     background-color: transparent !important;
   }
+
+  .error {
+    color: #ED2B2A;
+    font-size: 12px;
+  }

@@ -6,7 +6,7 @@
 	<meta charset="utf-8">  
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{asset('adminbackend/assets/images/favicon-32x32.png')}}" type="image/png" />
+	{{-- <link rel="icon" href="{{asset('adminbackend/assets/images/favicon-32x32.png')}}" type="image/png" /> --}}
 	<link href="{{asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css')}}" rel="stylesheet" />
 	<!--plugins-->
 	<link href="{{asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
@@ -36,7 +36,9 @@
 	<link href="{{asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet')}}" />
 	
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-	<title>Admin Dashboard</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/img/3D.png')}} " />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<title>3DIMEN</title>
 
 	
 </head>
