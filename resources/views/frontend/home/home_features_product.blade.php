@@ -1,5 +1,5 @@
 @php
-    $featured = App\Models\Product::where('featured',1)->where('discount_price' , "!=" , NULL)->orderBy('id','DESC')->limit(7)->get();
+    $featured = App\Models\Product::where('status',1)->where('discount_price' , "!=" , NULL)->orderBy('id','DESC')->limit(7)->get();
 @endphp
 
 <section class="section-padding pb-5">

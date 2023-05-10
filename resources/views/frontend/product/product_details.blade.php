@@ -106,7 +106,7 @@
                                         
                                     @else
                                         <div class="attr-detail attr-size mb-30">
-                                            <strong class="mr-10" style="width: 50px;">Size : </strong>
+                                            
                                             <select class="form-control unicase-form-control" name="size" id="size">
                                                 <option selected disabled>--Choose Size --</option>
 
@@ -122,7 +122,7 @@
                                         
                                     @else
                                         <div class="attr-detail attr-size mb-30">
-                                            <strong class="mr-10" style="width: 50px;">Color : </strong>
+                                            
                                                 <select class="form-control unicase-form-control" name="color" id="color">
                                                     <option selected disabled>--Choose Color --</option>
 

@@ -95,7 +95,7 @@
 
                             <td>
                                 <a href="{{ route('review.delete',$item->id) }}" class="btn btn-danger"
-                                    id="delete">Delete</a>
+                                    >Delete</a>
 
 
                             </td>

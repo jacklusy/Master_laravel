@@ -24,7 +24,7 @@
             <div class="row product-grid">
 
                 @foreach ($products as $product)
-                <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                <div class="col-lg-1-6 col-md-4 col-12 col-sm-6">
                     <div class="product-cart-wrap mb-30">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">

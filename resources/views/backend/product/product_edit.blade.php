@@ -17,19 +17,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="ms-auto">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Settings</button>
-                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	
-                    <a class="dropdown-item" href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <!--end breadcrumb-->
 
@@ -124,60 +112,7 @@
                                             </select>
                                         </div>
                                         
-                                        <div class="col-12">
-                                            <div class="row g-3">
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input  class="form-check-input" 
-                                                                name="hot_deals" 
-                                                                type="checkbox" 
-                                                                value="1" 
-                                                                id="flexCheckDefault"
-                                                                {{$products->hot_deals == 1 ? "checked" : ""}}
-                                                                >
-
-                                                        <label class="form-check-label" for="flexCheckDefault">Hot Deals</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input  class="form-check-input" 
-                                                                name="featured" 
-                                                                type="checkbox" 
-                                                                value="1" 
-                                                                id="flexCheckDefault"
-                                                                {{$products->featured == 1 ? "checked" : ""}}
-                                                                >
-                                                        <label class="form-check-label" for="flexCheckDefault">Featured</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input  class="form-check-input" 
-                                                                name="special_offer" 
-                                                                type="checkbox" 
-                                                                value="1" 
-                                                                id="flexCheckDefault"
-                                                                {{$products->special_offer == 1 ? "checked" : ""}}
-                                                                >
-                                                        <label class="form-check-label" for="flexCheckDefault">Special Offer</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input  class="form-check-input" 
-                                                                name="special_deals" 
-                                                                type="checkbox" 
-                                                                value="1" 
-                                                                id="flexCheckDefault"
-                                                                {{$products->special_deals == 1 ? "checked" : ""}}
-                                                                >
-                                                        <label class="form-check-label" for="flexCheckDefault">Special Deals</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
+                                     
                                         <div class="col-12">
                                             <div class="d-grid">
                                                 <button type="submit" class="btn btn-sm btn-primary">Save Change</button>
@@ -247,7 +182,7 @@
                                     <td><input class="form-group" type="file" name="multi_img[{{$img->id}}]" id="multiImg"></td>
                                     <td>
                                         <button type="submit" class="btn btn-primary px-4">Update Image</button>
-                                        <a href="{{route('product.multiImg.delete',$img->id)}}" id="delete" class="btn btn-danger" title="Delete">Delete</a>
+                                        <a href="{{route('product.multiImg.delete',$img->id)}}"  class="btn btn-danger" title="Delete">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

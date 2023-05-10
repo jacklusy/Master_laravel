@@ -44,7 +44,7 @@
                                 <td> <img src="{{ asset($item->banner_image) }}" alt="photo" style="width:70px ; height:60px ;"></td>
                                 <td>
                                     <a href="{{route('edit.banner',$item->id)}}" class="btn btn-info">Edit</a>
-                                    <a href="{{route('delete.banner',$item->id)}}" id="delete" class="btn btn-danger">Delete</a>
+                                    <a href="{{route('delete.banner',$item->id)}}"  class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

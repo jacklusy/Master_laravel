@@ -116,7 +116,7 @@
                             <th>
                                 @if($order->status == 'pending')
                                 <a href="{{ route('processing-delivered',$order->id) }}"
-                                    class="btn btn-block btn-success" id="delivered">Delivered Order</a>
+                                    class="btn btn-block btn-success" >Delivered Order</a>
                                     
                                 @endif
 

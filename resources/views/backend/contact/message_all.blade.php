@@ -46,7 +46,7 @@
                                 
                                 <td>
                                     <a href="{{route('reply.message',$item->id)}}" class="btn btn-info">Reply Message</a>
-                                    <a href="{{route('delete.message',$item->id)}}" id="delete" class="btn btn-danger">Delete</a>
+                                    <a href="{{route('delete.message',$item->id)}}"  class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

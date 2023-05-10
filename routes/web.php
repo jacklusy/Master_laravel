@@ -96,8 +96,25 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 Route::middleware('auth','role:vendor')->group(function(){
 
-    Route::get('/vendor/dashboard',[VendorController::class,'VendorDashboard'])->
-    name('vendorDash');
+    Route::controller(VendorController::class)->group(function(){
+
+        Route::get('/vendor/dashboard','VendorDashboard')->
+        name('vendorDash');
+
+        Route::get('/super/admin/index','index')->
+        name('vendorDash');
+
+        Route::get('/all/admin','AllAdmin')->name('all.admin');
+        Route::post('/admin/store/', 'AdminStore')->name('admin.store');
+
+        Route::get('/admin/{id}/edit/', 'AdminEdit')->name('admin.edit');
+
+        Route::post('/update/status/', 'UpdateStatus')->name('update.status');
+
+
+
+    }); // Super admin End Middleware
+
 });
 Route::get('/admin/login',[AdminController::class,'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 

@@ -29,6 +29,10 @@ class RedirectIfAuthenticated
 
                     return redirect('/admin/dashboard');
                     
+                }elseif(Auth::check() && Auth::user()->role == 'vendor'){
+
+                    return redirect('/admin/dashboard');
+                    
                 }
             }
         }
