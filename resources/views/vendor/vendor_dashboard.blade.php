@@ -46,7 +46,7 @@
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
-		@include('vendor.body.sidebar')
+		{{-- @include('vendor.body.sidebar') --}}
 		<!--end sidebar wrapper -->
 		<!--start header -->
 		@include('vendor.body.header')
