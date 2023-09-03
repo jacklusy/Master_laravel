@@ -2412,3 +2412,12 @@ input.search-control-2::placeholder {
 		display: none
 	}
 }
+
+.textarea-style textarea{
+    display: block !important;
+    width: 40rem !important;
+    height: 151px !important;
+	margin-bottom: 20px;
+
+    border: 1px solid inherit;
+}

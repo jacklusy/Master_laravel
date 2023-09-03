@@ -23,11 +23,8 @@ return new class extends Migration
             $table->string('adress')->nullable();
             $table->string('post_code')->nullable();
             $table->text('notes')->nullable();
-            
             $table->float('amount',8,2);
-
             $table->string('order_number')->nullable();
-
             $table->string('invoice_no');
 
             $table->string('order_date');
